@@ -9,7 +9,6 @@ const Landing = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // A simple GSAP animation example (optional)
   useEffect(() => {
     gsap.from(".landing-title", { opacity: 0, y: 50, duration: 1 });
   }, []);
