@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/typography";
-@import "tailwindcss/forms";
-@import "tailwindcss/aspect-ratio";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind typography;
+@tailwind forms;
+@tailwind aspect-ratio;
 
 :root {
   --background-color: #131313;
