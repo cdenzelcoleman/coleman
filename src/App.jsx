@@ -28,6 +28,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
+import "./css/index.css";
+import TechStack from './TechStack';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -169,6 +171,7 @@ const App = () => {
                 }
               />
               <Route path="/project/:name" element={<SinglePageProject />} />
+              <Route path="/tech" element={<TechStack />} />
             </>
           </Routes>
         </div>
