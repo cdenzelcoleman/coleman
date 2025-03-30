@@ -1,0 +1,30 @@
+.bg-font-color {
+    background-color: var(--font-color);
+  }
+  
+  .text-bg-color {
+    color: var(--background-color);
+  }
+  
+  .main-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  .tablet\:-mt-40 {
+    margin-top: -10rem;
+  }
+  
+  .tablet\:text-11xl {
+    font-size: 8rem;
+    line-height: 1;
+  }
+  
+  .desktop\:text-14xl {
+    font-size: 10rem;
+    line-height: 1;
+  }
+  
+  .-mb-3 {
+    margin-bottom: -0.75rem;
+  }
