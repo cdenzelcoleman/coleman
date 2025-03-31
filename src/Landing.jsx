@@ -1,89 +1,153 @@
-import React, { useEffect } from "react";
-import { useParallax } from "react-scroll-parallax";
+import React, { useState, useEffect, useRef } from "react";
+import DateObject from "react-date-object";
 import gsap from "gsap";
+import svgLanding from "./assets/abstract-landing.svg";
+import { useParallax } from "react-scroll-parallax";
+import "./css/styles.css";
 import "./animations/hover-animation.css";
 
 const Landing = () => {
-  const { ref: designerRef } = useParallax({
-    translateX: [-100, 50], 
-    speed: -10
-  });
+  const [time, setTime] = useState(
+    new DateObject({ timezone: "America/Chicago" })
+  );
 
-  const { ref: developerRef } = useParallax({
-    translateX: [50, -50],
-    speed: 10
-  });
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // GSAP animations for initial load
   useEffect(() => {
-    gsap.fromTo(
-      [".name-heading", ".location-text"],
-      { 
-        opacity: 0,
-        y: 50 
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power4.out"
-      }
-    );
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const parallaxConfig = isMobile
+    ? {
+        titleDesigner: { translateX: [-50, 20], speed: 5 },
+        titleDeveloper: { translateX: [20, -10], speed: 5 },
+      }
+    : {
+        titleDesigner: {
+          translateX: [10, -20],
+          speed: 10,
+          easing: "easeInOutQuad",
+        },
+        titleDeveloper: {
+          translateX: [0, 20],
+          speed: 10,
+          easing: "easeInOutQuad",
+        },
+      };
+
+  const { ref: titleDesigner } = useParallax(parallaxConfig.titleDesigner);
+  const { ref: titleDeveloper } = useParallax(parallaxConfig.titleDeveloper);
+
+  // scroll navigation handler
+  const handleLinkClick = (sectionId, event) => {
+    event.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // GSAP animations
+  useEffect(() => {
+    // Blinking colon animation for time
+    gsap.to(".blink-colon", {
+      opacity: 0,
+      repeat: -1,
+      yoyo: true,
+      duration: 0.5,
+    });
+
+    // Fade-in animation 
+    gsap.from(".custom-animation", {
+      opacity: 0,
+      ease: "power4.inOut",
+      duration: 1.5,
+      delay: 0.5,
+      stagger: 0.2,
+    });
+
+    // Update the time every second
+    const interval = setInterval(() => {
+      setTime(new DateObject({ timezone: "Europe/Bucharest" }));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Format the time values
+  const hours = time.format("hh");
+  const minutes = time.format("mm");
+  const ampm = time.format("A");
+
   return (
-    <div className="w-full h-screen overflow-hidden relative">
-      {/* Header Section */}
-      <header className="flex justify-between p-8 absolute w-full z-10">
-        <div className="flex flex-col font-urbanist">
-          <h1 className="name-heading text-3xl font-bold">CAMERON COLEMAN</h1>
-          <h2 className="name-heading text-4xl font-extrabold mt-2">
-            FULL-STACK DEVELOPER
+    <div className="w-full mt-5 h-screen overflow-hidden">
+      <div>
+        {/* Header Section */}
+        <div className="flex justify-between overflow-hidden tablet:flex-row mobile:flex-col -z-10">
+          <div className="flex justify-center items-center">
+            <div className="flex flex-col font-urbanist custom-animation tablet:ml-5 mobile:-ml-24">
+              <h1>CAMERON - DENZEL COLEMAN</h1>
+              <h1 className="font-extrabold">FULL-STACK DEVELOPER</h1>
+            </div>
+            <div className="flex flex-col ml-3 font-bold text-white custom-animation font-urbanist">
+              <h1>16</h1>
+              <h1>07</h1>
+            </div>
+          </div>
+          <div className="font-urbanist custom-animation mobile:mt-5 tablet:mt-0 mobile:ml-10 tablet:ml-0">
+            <p>BASED IN</p>
+            <p className="font-extrabold">
+              AUSTIN, TX, {hours}
+              <span className="blink-colon">:</span>
+              {minutes} {ampm}
+            </p>
+          </div>
+          <div className="font-urbanist flex flex-col custom-animation mr-5 mobile:mt-5 tablet:mt-0 mobile:ml-10">
+            <p>NAVIGATION</p>
+            <div className="flex font-extrabold z-10">
+              {["about", "work", "contact"].map((link) => (
+                <a
+                  key={link}
+                  href={`#${link}`}
+                  className="hover-link ml-3"
+                  onClick={(e) => handleLinkClick(link, e)}
+                >
+                  <span>
+                    <span>{link.toUpperCase()}</span>
+                    <span>{link.toUpperCase()}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Main Parallax Section */}
+        <div className="custom-animation mobile:flex mobile:flex-col mobile:justify-center mobile:text-8xl tablet:text-12xl mobile:mt-20 tablet:mt-0">
+          <div
+            className="flex justify-center items-center font-clash-grotesk tablet:ml-80 tablet:-mr-96"
+            ref={titleDesigner}
+          >
+            <img
+              src={svgLanding}
+              alt="abstract landing"
+              className="z-10 -mr-48 mobile:w-40 tablet:w-auto"
+            />
+            <h1>FULL-STACK</h1>
+          </div>
+          <div className="flex justify-center items-center font-clash-grotesk tablet:-mt-52 tablet:mr-96 tablet:-ml-96 mobile:-mt-20">
+            <h1 ref={titleDeveloper}>DEVELOPER</h1>
+          </div>
+          <h2 className="flex justify-center items-start font-urbanist tablet:-ml-96 tablet:text-lg mobile:text-sm">
+            Place holder
           </h2>
         </div>
-
-        <div className="flex items-center gap-8">
-          <div className="font-urbanist location-text">
-            <p className="text-lg">BASED IN</p>
-            <p className="text-2xl font-extrabold">AUSTIN, TX</p>
-          </div>
-          <nav className="flex gap-6">
-            {["about", "work", "contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
-                className="hover-link text-xl font-bold uppercase"
-              >
-                {link}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
-
-      {/* Parallax Content */}
-      <main className="h-full w-full flex items-center justify-center">
-        {/* Developer Title */}
-        <div 
-          ref={designerRef} 
-          className="absolute left-[15%] top-1/3 -translate-y-1/2"
-        >
-          <h1 className="font-clash-grotesk text-[12rem] leading-[0.8]">
-            DEVELOPER
-          </h1>
-        </div>
-
-        {/* Designer Title */}
-        <div
-          ref={developerRef}
-          className="absolute right-[15%] top-2/3 -translate-y-1/2"
-        >
-          <h1 className="font-clash-grotesk text-[12rem] leading-[0.8]">
-            DESIGNER
-          </h1>
-        </div>
-      </main>
+      </div>
     </div>
   );
 };
