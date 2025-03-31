@@ -1,36 +1,77 @@
-import React from 'react';
-import projectsData from './utils/data';
+import React, { useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import { useParallax } from "react-scroll-parallax";
+import projectsData from "./utils/data";
+import HoverComponent from "./components/HoverComponent";
+import gsap from "gsap";
+import "./animations/hover-animation.css";
 
 const Projects = ({ onProjectClick }) => {
+  const [hoveredProjectId, setHoveredProjectId] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { ref: title } = useParallax({ translateX: [10, -40], speed: 5 });
+
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
+
+  const springStyles = useSpring({
+    opacity: hoveredProjectId !== null ? 1 : 0,
+    transform: hoveredProjectId !== null ? "translateY(0)" : "translateY(10px)",
+  });
+
   return (
-    <section className="projects-section p-8" id="projects">
-      <h2 className="text-4xl font-clash-grotesk-bold mb-8">Projects</h2>
-      <div className="grid tablet:grid-cols-2 mobile:grid-cols-1 gap-8">
+    <div 
+      className="w-full min-h-screen overflow-hidden relative font-urbanist flex flex-col mt-40"
+      id="projects"
+      onMouseMove={handleMouseMove}
+    >
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex ml-96" ref={title}>
+          <h1 className="font-clash-grotesk text-12xl -ml-52">PROJECTS</h1>
+        </div>
+        <p className="w-96 -ml-80 -mt-32 p-2">
+          Explore a curated selection of projects I've guided from concept to completion.
+        </p>
+      </div>
+
+      <div className="flex flex-col -mt-20">
         {projectsData.map((project) => (
           <div 
-            key={project.id}
-            className="project-card bg-zinc-800 p-6 rounded-lg cursor-pointer hover:bg-zinc-700 transition-colors"
+            key={project.id} 
+            className="h-vh mt-96" 
             onClick={() => onProjectClick(project.name)}
           >
-            <h3 className="text-2xl font-clash-grotesk-medium mb-4">
-              {project.name}
-            </h3>
-            <p className="text-font mb-4">{project.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {project.skills.map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-background rounded-full text-sm"
-                >
-                  {skill}
+            <animated.div
+              className="leading-1rem"
+              onMouseEnter={() => setHoveredProjectId(project.id)}
+              onMouseLeave={() => setHoveredProjectId(null)}
+              style={{ cursor: "pointer", ...springStyles }}
+            >
+              <h2 className="hover-h2 uppercase font-bold text-10xl hover:text-gray-500 h2-animation">
+                <span>
+                  <span>{project.name}</span>
+                  <span>{project.name}</span>
                 </span>
-              ))}
-            </div>
+              </h2>
+
+              {hoveredProjectId === project.id && (
+                <div 
+                  className="fixed pointer-events-none"
+                  style={{
+                    left: `${mousePosition.x + 20}px`,
+                    top: `${mousePosition.y - 20}px`
+                  }}
+                >
+                  <HoverComponent project={project} />
+                </div>
+              )}
+            </animated.div>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Projects; 
+export default Projects;

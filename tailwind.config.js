@@ -1,24 +1,32 @@
-// tailwind.config.js
 module.exports = {
-    content: [
-      "./index.html",
-      "./src/**/*.{js,ts,jsx,tsx}",
-    ],
-    corePlugins: {
-      preflight: true, // Keep enabled for proper base styles
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    screens: {
+      'mobile': '300px',
+      'tablet': '768px',
+      'desktop': '1500px'
     },
-    theme: {
-      extend: {
-        fontFamily: {
-          'clash-grotesk-bold': ['Clash Grotesk Bold'],
-          'clash-grotesk-regular': ['Clash Grotesk Regular'],
-          'urbanist': ['Urbanist', 'sans-serif']
-        },
-        colors: {
-          background: 'rgb(var(--background-color))',
-          font: 'rgb(var(--font-color))'
-        }
+    extend: {
+      fontFamily: {
+        'clash-grotesk': ['Clash Grotesk Bold', 'sans-serif'],
+        'urbanist': ['Urbanist', 'sans-serif']
       },
-    },
-    plugins: [],
-  }
+      fontSize: {
+        '12xl': '20rem',
+        '10xl': '12rem',
+        '14xl': '25rem',
+        '13xl': '21rem',
+        '11xl': '18rem',
+        '15xl': '16rem'
+      },
+      colors: {
+        'font-color': 'var(--font-color)',
+        'bg-color': 'var(--background-color)'
+      }
+    }
+  },
+  plugins: [],
+}

@@ -8,7 +8,8 @@ import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
 import Lenis from "lenis";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxProvider } from 'react-scroll-parallax';
+import { useSpring, animated } from '@react-spring/web';
 import { AnimatePresence } from "framer-motion";
 import "./css/lenis.css";
 import "./animations/hover-animation.css";
@@ -40,33 +41,24 @@ const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Preload SVG assets for a smoother experience
+  // Preload SVG
   usePreloadSVGAssets();
 
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      smooth: true,
-    });
-
-    lenis.on("scroll", () => {
-      ScrollTrigger.update();
-    });
-
+    const lenis = new Lenis();
+    
+    lenis.on('scroll', ScrollTrigger.update);
+    
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
-
-    gsap.ticker.lagSmoothing(0);
-    lenisRef.current = lenis;
-
+  
     return () => {
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
       lenis.destroy();
     };
   }, []);
+  
 
   useEffect(() => {
     if (siteContentRef.current) {

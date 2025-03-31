@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/cdenzelcoleman/coleman#readme",
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
+    "@gsap/react": "^2.1.2",
+    "@react-spring/web": "^9.7.5",
+    "@studio-freight/lenis": "^1.0.42",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "@vitejs/plugin-react": "^4.3.4",
@@ -30,10 +34,11 @@
     "framer-motion": "^12.6.2",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^7.4.1",
     "react-scroll-parallax": "^3.4.5",
+    "smoothscroll-polyfill": "^0.4.4",
     "vite": "^6.2.3"
   },
   "devDependencies": {

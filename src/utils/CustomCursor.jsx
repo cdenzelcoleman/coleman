@@ -1,42 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import gsap from 'gsap';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const CustomCursor = () => {
-  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
+  const cursorRef = useRef(null);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const moveCursor = (e) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
+    document.addEventListener("mousemove", (e) => {
+      gsap.to(cursorRef.current, {
+        x: e.clientX - 16,
+        y: e.clientY - 16,
+        duration: 0.1
+      });
+    });
 
-    window.addEventListener('mousemove', moveCursor);
+    const hoverTargets = document.querySelectorAll(".project-card, a, button, .hover-link");
+    
+    hoverTargets.forEach((target) => {
+      target.addEventListener("mouseenter", () => {
+        gsap.to(cursorRef.current, {
+          scale: 1.8,
+          backgroundColor: "#FF0000",
+          duration: 0.2
+        });
+        textRef.current.style.opacity = "1";
+      });
+
+      target.addEventListener("mouseleave", () => {
+        gsap.to(cursorRef.current, {
+          scale: 1,
+          backgroundColor: "#000",
+          duration: 0.2
+        });
+        textRef.current.style.opacity = "0";
+      });
+    });
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
+      hoverTargets.forEach((target) => {
+        target.removeEventListener("mouseenter", () => {});
+        target.removeEventListener("mouseleave", () => {});
+      });
     };
   }, []);
 
   return (
-    <div 
-      className="custom-cursor"
-      style={{
-        position: 'fixed',
-        left: `${cursorPosition.x}px`,
-        top: `${cursorPosition.y}px`,
-        pointerEvents: 'none',
-        zIndex: 9999,
-        transition: 'transform 0.2s ease-out',
-      }}
+    <div
+      ref={cursorRef}
+      className="w-8 h-8 bg-black fixed top-0 left-0 pointer-events-none z-50 rounded-full flex items-center justify-center"
     >
-      <div className="cursor-dot" 
-        style={{
-          width: '8px',
-          height: '8px',
-          backgroundColor: '#d6d6d6',
-          borderRadius: '50%',
-          transform: 'translate(-50%, -50%)',
-        }}
-      />
+      <span 
+        ref={textRef}
+        className="text-xs text-white font-urbanist font-bold absolute opacity-0 transition-opacity"
+        style={{ transform: 'translateY(150%)' }}
+      >
+        VIEW
+      </span>
     </div>
   );
 };
