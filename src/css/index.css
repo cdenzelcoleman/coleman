@@ -1,37 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
-  --background-color: #131313;
-  --font-color: #d6d6d6;
-}
-
-@font-face {
-  font-family: 'Clash Grotesk Bold';
-  src: url('../fonts/ClashGrotesk-Bold.otf') format('opentype');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Clash Grotesk Regular';
-  src: url('../fonts/ClashGrotesk-Regular.otf') format('opentype');
-  font-weight: normal;
+  --background-color: 19, 19, 19;
+  --font-color: 214, 214, 214;
 }
 
 @font-face {
   font-family: 'Clash Grotesk Medium';
   src: url('../fonts/ClashGrotesk-Medium.otf') format('opentype');
-  font-weight: medium;
+  font-weight: 500; 
 }
 
 @font-face {
   font-family: 'Clash Grotesk Light';
   src: url('../fonts/ClashGrotesk-Light.otf') format('opentype');
-  font-weight: light;
+  font-weight: 300; 
 }
 
 body {

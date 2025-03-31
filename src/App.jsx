@@ -13,13 +13,13 @@ import { AnimatePresence } from "framer-motion";
 import "./css/lenis.css";
 import "./animations/hover-animation.css";
 import "./css/loader.css";
-// import png1 from "./images/1.png";
-// import png2 from "./images/2.png";
-// import png3 from "./images/3.png";
-// import png4 from "./images/4.png";
-// import png5 from "./images/5.png";
-// import png6 from "./images/6.png";
-// import png7 from "./images/7.png";
+import png1 from "./images/1.png";
+import png2 from "./images/2.png";
+import png3 from "./images/3.png";
+import png4 from "./images/4.png";
+import png5 from "./images/5.png";
+import png6 from "./images/6.png";
+import png7 from "./images/7.png";
 import {
   BrowserRouter as Router,
   Route,
