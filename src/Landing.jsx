@@ -2,36 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 import DateObject from "react-date-object";
 import gsap from "gsap";
 import "./css/styles.css";
-import CustomCursor from "./utils/CustomCursor";
+// Removed unused CustomCursor and smoothscroll imports
 import svgLanding from "./assets/abstract-landing.svg";
-import { useParallax, ParallaxProvider } from "react-scroll-parallax";
-import smoothscroll from "smoothscroll-polyfill";
+import { useParallax } from "react-scroll-parallax";
 import "./animations/hover-animation.css";
 import "./css/loader.css";
-import png1 from "./images/1.png";
-import png2 from "./images/2.png";
-import png3 from "./images/3.png";
-import png4 from "./images/4.png";
-import png5 from "./images/5.png";
-import png6 from "./images/6.png";
-import png7 from "./images/7.png";
+import useAnimations from "./animations/useAnimation";
 
 const Landing = () => {
+  // Animate elements with "h2-animation" class via custom hook
+  useAnimations();
+
+  // Time state and update
   const [time, setTime] = useState(
     new DateObject({ timezone: "America/Chicago" })
   );
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const smoothScrollWrapperRef = useRef(null);
 
-  //mobile state resize
+  // Update isMobile on window resize
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Parallax configuration
   const parallaxConfig = isMobile
     ? {
         titleDesigner: { translateX: [-50, 20], speed: 5 },
@@ -53,7 +49,7 @@ const Landing = () => {
   const { ref: titleDesigner } = useParallax(parallaxConfig.titleDesigner);
   const { ref: titleDeveloper } = useParallax(parallaxConfig.titleDeveloper);
 
-  // Smooth scroll 
+  // Smooth scroll to sections
   const handleLinkClick = (sectionId, event) => {
     event.preventDefault();
     const section = document.getElementById(sectionId);
@@ -65,7 +61,7 @@ const Landing = () => {
     }
   };
 
-  // GSAP animations
+  // Basic GSAP animations
   useEffect(() => {
     gsap.to(".blink-colon", {
       opacity: 0,
@@ -88,34 +84,16 @@ const Landing = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Overlay click animations with cleanup
   useEffect(() => {
-    gsap.from(".headline-text", {
-      yPercent: 100,
-      ease: "power4.inOut",
-      stagger: { amount: 0.5 },
-      duration: 1.5,
-    });
-
-    gsap.to(
-      ".headline",
-      {
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        ease: "power4.inOut",
-        stagger: { amount: 0.5 },
-        duration: 1.5,
-      },
-      0
-    );
-
-    let overlay = document.querySelector(".overlay");
-    overlay.addEventListener("click", function () {
+    const overlay = document.querySelector(".overlay");
+    const handleOverlayClick = () => {
       gsap.to(".headline-text", {
         yPercent: -100,
         ease: "power4.inOut",
         stagger: { amount: 0.5 },
         duration: 1.5,
       });
-
       gsap.to(
         ".headline",
         {
@@ -126,27 +104,17 @@ const Landing = () => {
         },
         0
       );
-
       gsap.to(".overlay", {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         ease: "power4.inOut",
         duration: 2,
       });
+    };
 
-      gsap.to(".img-container", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-        ease: "power4.inOut",
-        stagger: { amount: 1.5 },
-        duration: 2,
-      });
-
-      gsap.to(".loader", {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        ease: "power4.inOut",
-        delay: 2,
-        duration: 2,
-      });
-    });
+    overlay.addEventListener("click", handleOverlayClick);
+    return () => {
+      overlay.removeEventListener("click", handleOverlayClick);
+    };
   }, []);
 
   const hours = time.format("hh");
@@ -159,8 +127,11 @@ const Landing = () => {
         <div className="flex justify-between overflow-hidden tablet:flex-row mobile:flex-col -z-10">
           <div className="flex justify-center items-center">
             <div className="flex flex-col font-urbanist custom-animation tablet:ml-5 mobile:-ml-24">
-              <h1>CAMERON COLEMAN</h1>
-              <h1 className="font-extrabold">FULL-STACK DEVELOPER</h1>
+              {/* Headings with "h2-animation" */}
+              <h1 className="h2-animation">CAMERON COLEMAN</h1>
+              <h1 className="h2-animation font-extrabold">
+                FULL-STACK DEVELOPER
+              </h1>
             </div>
             <div className="flex flex-col ml-3 font-bold text-white custom-animation font-urbanist">
               <h1>10+</h1>
@@ -215,29 +186,7 @@ const Landing = () => {
         </div>
       </div>
 
-      <div className="loader">
-        <div className="img-container">
-          <img src={png1} alt="Preloader" />
-        </div>
-        <div className="img-container">
-          <img src={png2} alt="Preloader" />
-        </div>
-        <div className="img-container">
-          <img src={png3} alt="Preloader" />
-        </div>
-        <div className="img-container">
-          <img src={png4} alt="Preloader" />
-        </div>
-        <div className="img-container">
-          <img src={png5} alt="Preloader" />
-        </div>
-        <div className="img-container">
-          <img src={png6} alt="Preloader" />
-        </div>
-        <div className="img-container">
-          <img src={png7} alt="Preloader" />
-        </div>
-      </div>
+      {/* Loader markup removed */}
 
       <div className="overlay">
         <div className="col">

@@ -51,16 +51,18 @@ const About = () => {
   return (
     <div className="w-full font-urbanist uppercase p-2 pb-40" id="about">
       <div>
-        <h1 className="font-clash-grotesk tablet:text-10xl mobile:text-7xl about-title">general+</h1>
+        <h1 className="font-clash-grotesk tablet:text-10xl mobile:text-7xl about-title">
+          cameron coleman
+        </h1>
       </div>
       <div className="grid tablet:grid-cols-2 mobile:grid-cols-1 gap-4">
-        <div className="font-bold p-about">
-          <img src={about2} alt="Cameron Coleman" className="rounded-lg"/>
-          <p className="mt-4 text-lg">cameron coleman &nbsp;&nbsp; full-stack developer</p>
-          <p className="text-lg">Austin, TX</p>
+        {/* Updated location block: using flex-col to stack text vertically */}
+        <div className="font-bold p-about flex flex-col">
+          <p className="mt-4 text-lg">Full-Stack Developer</p>
+          <p className="text-lg">Location: Austin, TX</p>
         </div>
         <div className="p-about">
-          <img src={about1} alt="Cameron Coleman" className="rounded-lg"/>
+          <img src={about1} alt="Cameron Coleman" className="rounded-lg" />
           <p className="text-lg mt-4">
             Hi, I'm Cameron Coleman, a proactive full-stack developer passionate about creating dynamic digital experiences. I thrive on solving complex challenges with clean, efficient code—from designing engaging front-end interfaces using React to building robust backends with Node.js and Django.
           </p>

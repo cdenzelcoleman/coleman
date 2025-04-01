@@ -1,25 +1,39 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import "../css/loader.css"; 
+import "../css/panelPreloader.css" 
+
+import TypeJobTitles from "./TypeJobTitles"; 
 
 const Preloader = ({ onAnimationComplete }) => {
+  // job titles 
+  const jobTitles = [
+    "Full-Stack Developer",
+    "Software Engineer",
+    "Back-End Developer",
+    "UI/UX Developer",
+    "Web Developer",
+    "Front-End Developer",
+    "Based In Austin, TX",
+  ];
+
+  // trigger an overall preloader animation (like fading out the overlay)
   useEffect(() => {
-    gsap.to(".overlay", {
-      clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)", 
-      duration: 1.5,
-      ease: "power4.inOut",
-      delay: 8, 
-      onComplete: onAnimationComplete, 
-    });
+    // fade out the entire preloader after 8 seconds.
+    const timer = setTimeout(() => {
+      //hide the preloader
+      onAnimationComplete && onAnimationComplete();
+    }, 8000); //  duration 
+
+    return () => clearTimeout(timer);
   }, [onAnimationComplete]);
 
   return (
     <div className="preloader">
-      <div className="loader">
-        <h1>Loading...</h1>
-        {/* You can add more animated elements here (like a logo or animated graphics) */}
+      <div className="loader-content">
+        <h1>
+          <TypeJobTitles titles={jobTitles} />
+        </h1>
       </div>
-      <div className="overlay"></div>
     </div>
   );
 };
