@@ -1,5 +1,5 @@
 import React from "react";
-import contactAbstract from '../assets/abstract-available.svg';
+// import contactAbstract from '../assets/abstract-available.svg';
 import "../css/contact.css";
 import { useParams, Link } from "react-router-dom";
 import projectsData from "../utils/data";

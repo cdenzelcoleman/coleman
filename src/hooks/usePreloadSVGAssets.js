@@ -1,37 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-const usePreloadSVGAssets = () => {
+const preloadAssets = (files) => {
+  for (const path in files) {
+    files[path](); 
+  }
+};
+
+const usePreloadAssets = () => {
   useEffect(() => {
-    const preloadImages = async () => {
-      const images = [
-        // List all SVG assets used in the project
-        '/logo.svg',
-        '/src/assets/about-photo.svg',
-        '/src/assets/abstract-contact.svg',
-        '/src/assets/about-1.png',
-        '/src/assets/about-2.png',
-        '/src/assets/og-image.png'
-      ];
+    const svgContext = import.meta.glob("../assets/**/*.svg");
+    const pngContext = import.meta.glob("../assets/**/*.png");
 
-      const promises = images.map((src) => {
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-          img.onerror = reject;
-        });
-      });
+    const combinedContext = { ...svgContext, ...pngContext };
 
-      try {
-        await Promise.all(promises);
-        console.log('All SVG assets preloaded');
-      } catch (error) {
-        console.warn('Error preloading assets:', error);
-      }
-    };
-
-    preloadImages();
+    preloadAssets(combinedContext);
   }, []);
 };
 
-export default usePreloadSVGAssets;
+export default usePreloadAssets;

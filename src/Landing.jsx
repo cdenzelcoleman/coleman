@@ -155,7 +155,6 @@ const Landing = () => {
 
   return (
     <div className="w-full mt-5 h-screen overflow-hidden">
-      {/* Header & Hero Section */}
       <div>
         <div className="flex justify-between overflow-hidden tablet:flex-row mobile:flex-col -z-10">
           <div className="flex justify-center items-center">
@@ -216,7 +215,6 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* Loader */}
       <div className="loader">
         <div className="img-container">
           <img src={png1} alt="Preloader" />
@@ -241,7 +239,6 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* Overlay with Introductory Text */}
       <div className="overlay">
         <div className="col">
           <h2 className="headline">
@@ -307,7 +304,7 @@ const Landing = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-4">Contact</h2>
           <p className="text-lg">
-            Get in touch:{"512-317-4414"}
+            Get in touch:{"512-317-4414 "}
             <a href="mailto:cameron@example.com" className="text-blue-500">
               camdenzelcoleman@gmail.com
             </a>
