@@ -15,7 +15,6 @@
   font-weight: bold;
 }
 
-/* Add other font-face declarations as needed */
 
 * {
   margin: 0;
@@ -53,4 +52,13 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   z-index: 9999;
   background-color: #000;
+}
+@keyframes blink {
+  from, to { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+.react-type-animation {
+  display: inline-block;
+  vertical-align: baseline;
 }
