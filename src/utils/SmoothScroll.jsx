@@ -9,7 +9,10 @@ const SmoothScroll = ({ children }) => {
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
-      syncTouch: true
+      syncTouch: true,
+      wheelMultiplier: 1.2,  // Added
+      touchMultiplier: 2,    // Added
+      normalizeWheel: true   // Added
     })
 
     lenis.on('scroll', ScrollTrigger.update)

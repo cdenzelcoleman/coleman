@@ -37,7 +37,15 @@ const App = () => {
   usePreloadSVGAssets();
 
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smoothWheel: true,
+      syncTouch: true,
+      wheelMultiplier: 1.2,
+      touchMultiplier: 2,
+      normalizeWheel: true
+    });
+    
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
@@ -45,8 +53,13 @@ const App = () => {
 
     const timer = setTimeout(() => {
       setIsLoaded(true);
-      // Since the loader images are removed, only fade out the overlay.
-      gsap.to(".overlay", { autoAlpha: 0, duration: 1 });
+      gsap.to(".overlay", {
+        autoAlpha: 0,
+        duration: 1,
+        onComplete: () => {
+          document.querySelector('.overlay').style.display = 'none';
+        }
+      });
     }, 2000);
 
     return () => {
@@ -85,8 +98,6 @@ const App = () => {
             <Route path="/tech" element={<TechStack />} />
           </Routes>
         </div>
-
-        {/* Loader image markup has been removed */}
 
         <div className="overlay">
           <div className="col mobile:text-sm tablet:text-5xl">
