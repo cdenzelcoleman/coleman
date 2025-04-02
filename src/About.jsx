@@ -62,7 +62,11 @@ const About = () => {
           <p className="text-lg">Location: Austin, TX</p>
         </div>
         <div className="p-about">
-          <img src={about1} alt="Cameron Coleman" className="rounded-lg" />
+        <img 
+  src={about1} 
+  alt="Cameron Coleman" 
+  className="rounded-lg w-full max-w-[400px] h-auto mx-auto tablet:max-w-[300px] mobile:max-w-[200px] transition-all duration-300 hover:scale-95"
+/>
           <p className="text-lg mt-4">
             Hi, I'm Cameron Coleman, a proactive full-stack developer passionate about creating dynamic digital experiences. I thrive on solving complex challenges with clean, efficient code—from designing engaging front-end interfaces using React to building robust backends with Node.js and Django.
           </p>

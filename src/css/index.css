@@ -53,12 +53,23 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9999;
   background-color: #000;
 }
+.min-w-\[300px\] {
+  min-width: 300px;
+}
+
+.min-w-\[200px\] {
+  min-width: 200px;
+}
+
 @keyframes blink {
-  from, to { opacity: 1 }
+  0%, 100% { opacity: 1 }
   50% { opacity: 0 }
 }
 
+.blink-colon {
+  animation: blink 1s infinite;
+}
+
 .react-type-animation {
-  display: inline-block;
-  vertical-align: baseline;
+  vertical-align: text-top;
 }

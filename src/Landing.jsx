@@ -51,6 +51,7 @@ const Landing = () => {
 
   return (
     <div className="w-full h-screen overflow-hidden">
+      <div className="fixed top-0 left-0 w-full #ECECED z-50">
       <div className="flex justify-between items-start overflow-hidden tablet:flex-row mobile:flex-col">
         <div className="flex items-center flex-grow min-w-[300px]">
           <div className="flex flex-col font-urbanist tablet:ml-5 mobile:-ml-24">
@@ -116,14 +117,15 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      </div>
 
       {/* Main Content */}
-      <div className="mt-20 tablet:mt-10">
+      <div className="mt-60 tablet:mt-80">
         <div className="flex justify-center items-center font-clash-grotesk tablet:ml-40" ref={titleDesigner}>
           <h1 className="tablet:text-10xl mobile:text-7xl">FULL-STACK</h1>
         </div>
         
-        <div className="flex justify-center items-center font-clash-grotesk tablet:-mt-32" ref={titleDeveloper}>
+        <div className="flex justify-center items-center font-clash-grotesk tablet:-mt-28" ref={titleDeveloper}>
           <h1 className="tablet:text-10xl mobile:text-7xl">DEVELOPER</h1>
         </div>
 

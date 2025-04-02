@@ -4,7 +4,7 @@ import projectsData from "../utils/data";
 import { useParallax } from "react-scroll-parallax";
 import Available from "./Available";
 import ScrollToTop from "../hooks/ScrollToTop";
-import CustomCursor from "../utils/CustomCursor";
+import CustomCursor from "./CustomCursor";
 import "../animations/hover-animation.css";
 import "../css/loader.css";
 import gsap from "gsap";

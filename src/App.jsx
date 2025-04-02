@@ -4,7 +4,7 @@ import gsap from "gsap";
 import Landing from "./Landing";
 import About from "./About";
 import Projects from "./Projects";
-import CustomCursor from "./utils/CustomCursor";
+import CustomCursor from "./components/CustomCursor";
 import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
 import Lenis from "lenis";
@@ -76,6 +76,7 @@ const App = () => {
   return (
     <AnimatePresence mode="wait">
       <ParallaxProvider>
+        <CustomCursor />
         {isLoading && <Preloader onAnimationComplete={handlePreloadComplete} />}
         <div
           className="content-wrapper"
