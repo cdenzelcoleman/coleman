@@ -4,7 +4,7 @@ import projectsData from "../utils/data";
 import { useParallax } from "react-scroll-parallax";
 import Available from "./Available";
 import ScrollToTop from "../hooks/ScrollToTop";
-import CustomCursor from "./CustomCursor";
+import CustomCursor from "./LiquidCursor";
 import "../animations/hover-animation.css";
 import "../css/loader.css";
 import gsap from "gsap";
@@ -16,7 +16,7 @@ const preloadImages = (images) => {
   });
 };
 
-const isMobile = () => window.innerWidth <= 768; // Adjust based on your breakpoint for mobile
+const isMobile = () => window.innerWidth <= 768; // Adjust for mobile
 
 const SinglePageProject = () => {
   ScrollToTop();
@@ -31,7 +31,7 @@ const SinglePageProject = () => {
         imageProject: { speed: 5 },
       }
     : {
-        firstName: { translateX: [-50, 20], speed: 10 }, // Desktop values
+        firstName: { translateX: [-50, 20], speed: 10 }, // Desktop 
         lastName: { translateX: [30, -20], speed: 10 },
         imageProject: { speed: 10 },
       };

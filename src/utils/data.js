@@ -60,12 +60,6 @@ const projectsData = [
       year: "2024",
       details:
         "Comic Review Boards is designed as a platform for comic lovers to explore reviews, ratings, and discussions in an engaging format.",
-      socials: {
-        behance: {
-          name: "Behance",
-          link: "https://www.behance.net/comicreviewboards"
-        }
-      },
       image: "/assets/comic-review-boards.png",
       hero: "/assets/comic-review-boards-hero.png",
       gridImages: ["/assets/comic-review-boards-1.png", "/assets/comic-review-boards-2.png", "/assets/comic-review-boards-3.png"],

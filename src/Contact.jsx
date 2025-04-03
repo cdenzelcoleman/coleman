@@ -1,5 +1,6 @@
 import React from "react";
 import contactAbstract from "./assets/abstract-contact.svg";
+// import "../public/pdf/Cameron_Coleman_Full_Stack_Resume.pdf";
 import "./css/contact.css";
 
 const Contact = () => {

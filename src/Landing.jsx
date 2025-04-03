@@ -54,7 +54,7 @@ const Landing = () => {
       <div className="fixed top-0 left-0 w-full #ECECED z-50">
       <div className="flex justify-between items-start overflow-hidden tablet:flex-row mobile:flex-col">
         <div className="flex items-center flex-grow min-w-[300px]">
-          <div className="flex flex-col font-urbanist tablet:ml-5 mobile:-ml-24">
+          <div className="font-extrabold flex flex-col font-urbanist tablet:ml-5 mobile:-ml-24">
             <h1 className="h2-animation">CAMERON COLEMAN</h1>
             <div className="h2-animation font-extrabold">
               <TypeAnimation
@@ -86,7 +86,7 @@ const Landing = () => {
         </div>
 
         <div className="font-urbanist flex-shrink-0 min-w-[200px] tablet:mr-5 mobile:mr-0">
-          <p className="whitespace-nowrap text-center tablet:text-left">LOCATION</p>
+          <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">LOCATION</p>
           <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">
             AUSTIN, TX {hours}
             <span className="blink-colon">:</span>
@@ -97,7 +97,7 @@ const Landing = () => {
         {/* Navigation */}
         <div className="font-urbanist flex flex-col mr-5 flex-shrink-0 min-w-[200px]">
           <p className="font-extrabold whitespace-nowrap text-center tablet:text-l-right">NAVIGATION</p>
-          <div className="flex justify-end gap-3">
+          <div className="font-extrabold flex justify-end gap-3">
             {["about", "work", "contact"].map((link) => (
               <a
                 key={link}

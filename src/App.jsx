@@ -4,7 +4,6 @@ import gsap from "gsap";
 import Landing from "./Landing";
 import About from "./About";
 import Projects from "./Projects";
-import CustomCursor from "./components/CustomCursor";
 import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
 import Lenis from "lenis";
@@ -19,6 +18,7 @@ import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
 import "./css/index.css";
 import TechStack from "./TechStack";
+import LiquidCursor from './components/LiquidCursor';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,7 +76,7 @@ const App = () => {
   return (
     <AnimatePresence mode="wait">
       <ParallaxProvider>
-        <CustomCursor />
+        <LiquidCursor />
         {isLoading && <Preloader onAnimationComplete={handlePreloadComplete} />}
         <div
           className="content-wrapper"
@@ -88,7 +88,6 @@ const App = () => {
               element={
                 <>
                   <Landing />
-                  <CustomCursor />
                   <About />
                   <Projects onProjectClick={handleProjectClick} />
                   <Contact />
@@ -100,7 +99,7 @@ const App = () => {
           </Routes>
         </div>
 
-        <div className="overlay">
+        <div className="overlay" style={{ zIndex: 9998 }}>
           <div className="col mobile:text-sm tablet:text-5xl">
             <h2 className="headline">
               <div className="headline-text">A full-stack</div>

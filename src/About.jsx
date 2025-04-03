@@ -56,7 +56,6 @@ const About = () => {
         </h1>
       </div>
       <div className="grid tablet:grid-cols-2 mobile:grid-cols-1 gap-4">
-        {/* Updated location block: using flex-col to stack text vertically */}
         <div className="font-bold p-about flex flex-col">
           <p className="mt-4 text-lg">Full-Stack Developer</p>
           <p className="text-lg">Location: Austin, TX</p>
