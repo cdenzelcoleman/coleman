@@ -1,5 +1,4 @@
 import React from "react";
-import contactAbstract from "./assets/abstract-contact.svg";
 // import "../public/pdf/Cameron_Coleman_Full_Stack_Resume.pdf";
 import "./css/contact.css";
 
@@ -7,7 +6,6 @@ const Contact = () => {
   return (
     <div className="tablet:w-full tablet:pb-5 mt-40" id="contact">
       <div className="absolute tablet:-mt-40 mobile:-mt-12">
-        <img src={contactAbstract} alt="abstract" className="mobile:w-28 tablet:w-auto" />
       </div>
       <div className="flex justify-center items-center main-container w-full grow p-5">
         <div className="pt-5 pl-5 pr-5 rounded-3xl bg-font-color uppercase flex flex-col justify-between grow w-full">

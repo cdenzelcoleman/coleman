@@ -46,7 +46,7 @@ const Projects = ({ onProjectClick }) => {
               className="leading-1rem"
               onMouseEnter={() => setHoveredProjectId(project.id)}
               onMouseLeave={() => setHoveredProjectId(null)}
-              style={{ cursor: "pointer", ...springStyles }}
+              style={springStyles}
             >
               <h2 className="hover-h2 uppercase font-bold text-10xl hover:text-gray-500 h2-animation">
                 <span>

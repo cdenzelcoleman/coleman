@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import aboutPhoto from "./assets/about-photo.svg";
 import { useParallax } from "react-scroll-parallax";
 import "./css/index.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import about1 from "./assets/ABOUT-1.png";
-import about2 from "./assets/ABOUT-2.png";
 
 const About = () => {
   useEffect(() => {
