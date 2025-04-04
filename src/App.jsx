@@ -1,32 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
-import PanelPreloader from "./components/PanelPreloader";
+// src/App.jsx
+import React, { useEffect, useState } from "react";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { ParallaxProvider } from "react-scroll-parallax";
+import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
+import Lenis from "lenis";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+// Import your components
+import PanelPreloader from "./components/PanelPreloader";
+import Preloader from "./components/Preloader";
+import LiquidCursor from "./components/LiquidCursor";
+import BackgroundColorChanger from "./components/BackgroundColorChanger";
 import Landing from "./Landing";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
-import Lenis from "lenis";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Preloader from "./components/Preloader";
-import { ParallaxProvider } from "react-scroll-parallax";
-import { AnimatePresence } from "framer-motion";
+import TechStack from "./TechStack";
+import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
+
+// Import CSS files
 import "./css/lenis.css";
 import "./animations/hover-animation.css";
 import "./css/loader.css";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
-import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
 import "./css/index.css";
-import TechStack from "./TechStack";
-import LiquidCursor from './components/LiquidCursor';
 
+// Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const siteContentRef = useRef(null);
-  const lenisRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,9 +48,9 @@ const App = () => {
       syncTouch: true,
       wheelMultiplier: 1.2,
       touchMultiplier: 2,
-      normalizeWheel: true
+      normalizeWheel: true,
     });
-    
+
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
@@ -57,8 +62,8 @@ const App = () => {
         autoAlpha: 0,
         duration: 1,
         onComplete: () => {
-          document.querySelector('.overlay').style.display = 'none';
-        }
+          document.querySelector(".overlay").style.display = "none";
+        },
       });
     }, 2000);
 
@@ -76,8 +81,14 @@ const App = () => {
   return (
     <AnimatePresence mode="wait">
       <ParallaxProvider>
+        {/* Custom Cursor and Background Color Changer */}
         <LiquidCursor />
+        <BackgroundColorChanger />
+
+        {/* Preloader */}
         {isLoading && <Preloader onAnimationComplete={handlePreloadComplete} />}
+
+        {/* Main Content */}
         <div
           className="content-wrapper"
           style={{ visibility: isLoaded ? "visible" : "hidden" }}
@@ -99,6 +110,7 @@ const App = () => {
           </Routes>
         </div>
 
+        {/* Overlay */}
         <div className="overlay" style={{ zIndex: 9998 }}>
           <div className="col mobile:text-sm tablet:text-5xl">
             <h2 className="headline">

@@ -55,8 +55,8 @@ const About = () => {
       </div>
       <div className="grid tablet:grid-cols-2 mobile:grid-cols-1 gap-4">
         <div className="font-bold p-about flex flex-col">
-          <p className="mt-4 text-lg">Full-Stack Developer</p>
-          <p className="text-lg">Location: Austin, TX</p>
+          <p className="mt-4 text-lg"></p>
+          <p className="text-lg"></p>
         </div>
         <div className="p-about">
         <img 

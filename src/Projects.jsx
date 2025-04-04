@@ -36,39 +36,50 @@ const Projects = ({ onProjectClick }) => {
       </div>
 
       <div className="flex flex-col -mt-20">
-        {projectsData.map((project) => (
-          <div 
-            key={project.id} 
-            className="h-vh mt-96" 
-            onClick={() => onProjectClick(project.name)}
+      {projectsData.map((project) => (
+  <div 
+    key={project.id} 
+    className="h-vh mt-96" 
+    onClick={() => onProjectClick(project.name)}
+  >
+    <animated.div
+      className="leading-1rem"
+      onMouseEnter={() => setHoveredProjectId(project.id)}
+      onMouseLeave={() => setHoveredProjectId(null)}
+      style={springStyles}
+    >
+      <h2 className="hover-h2 uppercase font-bold text-10xl hover:text-gray-500 h2-animation">
+        <span>
+          <span>{project.name}</span>
+          <span>{project.name}</span>
+        </span>
+      </h2>
+      
+      {hoveredProjectId === project.id && (
+        <div 
+          className="fixed pointer-events-none"
+          style={{
+            left: `${mousePosition.x + 20}px`,
+            top: `${mousePosition.y - 20}px`
+          }}
+        >
+          <HoverComponent project={project} />
+          <a 
+            href={project.liveDemo}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover-link"
           >
-            <animated.div
-              className="leading-1rem"
-              onMouseEnter={() => setHoveredProjectId(project.id)}
-              onMouseLeave={() => setHoveredProjectId(null)}
-              style={springStyles}
-            >
-              <h2 className="hover-h2 uppercase font-bold text-10xl hover:text-gray-500 h2-animation">
-                <span>
-                  <span>{project.name}</span>
-                  <span>{project.name}</span>
-                </span>
-              </h2>
-
-              {hoveredProjectId === project.id && (
-                <div 
-                  className="fixed pointer-events-none"
-                  style={{
-                    left: `${mousePosition.x + 20}px`,
-                    top: `${mousePosition.y - 20}px`
-                  }}
-                >
-                  <HoverComponent project={project} />
-                </div>
-              )}
-            </animated.div>
-          </div>
-        ))}
+            <span>
+              <span>View Live</span>
+              <span>View Live</span>
+            </span>
+          </a>
+        </div>
+      )}
+    </animated.div>
+  </div>
+))}
       </div>
     </div>
   );

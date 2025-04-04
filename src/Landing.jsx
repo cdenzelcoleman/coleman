@@ -85,7 +85,7 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className="font-urbanist flex-shrink-0 min-w-[200px] tablet:mr-5 mobile:mr-0">
+        <div className="font-urbanist flex-shrink-0 min-w-[200px] tablet:mr-5 mobile:mr-0 ">
           <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">LOCATION</p>
           <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">
             AUSTIN, TX {hours}
@@ -98,7 +98,7 @@ const Landing = () => {
         <div className="font-urbanist flex flex-col mr-5 flex-shrink-0 min-w-[200px]">
           <p className="font-extrabold whitespace-nowrap text-center tablet:text-l-right">NAVIGATION</p>
           <div className="font-extrabold flex justify-end gap-3">
-            {["about", "work", "contact"].map((link) => (
+            {["about", "projects", "contact"].map((link) => (
               <a
                 key={link}
                 href={`#${link}`}

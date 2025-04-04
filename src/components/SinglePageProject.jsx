@@ -4,7 +4,7 @@ import projectsData from "../utils/data";
 import { useParallax } from "react-scroll-parallax";
 import Available from "./Available";
 import ScrollToTop from "../hooks/ScrollToTop";
-import CustomCursor from "./LiquidCursor";
+import LiquidCursor from "./LiquidCursor";
 import "../animations/hover-animation.css";
 import "../css/loader.css";
 import gsap from "gsap";
@@ -16,7 +16,7 @@ const preloadImages = (images) => {
   });
 };
 
-const isMobile = () => window.innerWidth <= 768; // Adjust for mobile
+const isMobile = () => window.innerWidth <= 768;
 
 const SinglePageProject = () => {
   ScrollToTop();
@@ -26,12 +26,12 @@ const SinglePageProject = () => {
 
   const parallaxConfig = isMobile()
     ? {
-        firstName: { translateX: [-20, -10], speed: 5 }, // Adjust for mobile
+        firstName: { translateX: [-20, -10], speed: 5 },
         lastName: { translateX: [20, -10], speed: 5 },
         imageProject: { speed: 5 },
       }
     : {
-        firstName: { translateX: [-50, 20], speed: 10 }, // Desktop 
+        firstName: { translateX: [-50, 20], speed: 10 },
         lastName: { translateX: [30, -20], speed: 10 },
         imageProject: { speed: 10 },
       };
@@ -49,32 +49,28 @@ const SinglePageProject = () => {
   }, [project]);
 
   useEffect(() => {
-  
-   
-  
-      gsap.to(".img-container", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-        ease: "power4.inOut",
-        stagger: {
-          amount: 1.5,
-        },
-        duration: 2,
-      });
-  
-      gsap.to(".loader", {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        ease: "power4.inOut",
-        delay: 2,
-        duration: 2,
-      });
+    gsap.to(".img-container", {
+      clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+      ease: "power4.inOut",
+      stagger: { amount: 1.5 },
+      duration: 2,
+    });
+
+    gsap.to(".loader", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+      ease: "power4.inOut",
+      delay: 2,
+      duration: 2,
+    });
   }, []);
 
   return (
     <div className="w-full bg-bg-color text-font-color overflow-hidden">
-      <CustomCursor />
+      <LiquidCursor />
       {project ? (
         <div className="w-full">
-          <div><div className="font-clash-grotesk font-bold uppercase w-full tablet:text-12xl mobile:text-7xl">
+          {/* Project Title */}
+          <div className="font-clash-grotesk font-bold uppercase w-full tablet:text-12xl mobile:text-7xl">
             <h1 className="tablet:-mt-5 tablet:-ml-40 mobile:mt-10" ref={firstName}>
               {project.firstname}/
             </h1>
@@ -82,6 +78,8 @@ const SinglePageProject = () => {
               {project.lastname}
             </h1>
           </div>
+
+          {/* Keywords */}
           <div>
             {project.keywords.map((keyword, i) => (
               <p key={i} className="font-urbanist font-bold uppercase ml-3">
@@ -89,6 +87,8 @@ const SinglePageProject = () => {
               </p>
             ))}
           </div>
+
+          {/* Project Details & Hero */}
           <div
             className="grid tablet:grid-cols-3 mobile:grid-cols-1 items-end mobile:flex-col tablet:flex-row font-urbanist p-3 uppercase text-lg mobile:text-sm tablet:text-lg"
             ref={imageProject}
@@ -105,27 +105,27 @@ const SinglePageProject = () => {
               />
             </div>
           </div>
+
+          {/* Month, Year, and Skills */}
           <div className="w-full tablet:mt-10 tablet:text-10xl mobile:text-7xl font-clash-grotesk">
             <h1 className="flex justify-end tablet:-mr-32">
               {project.month}/
             </h1>
             <div className="flex flex-col items-center">
-              {" "}
               <h1 className="tablet:-mt-10 italic">
                 &#40;{project.year}/&#41;
               </h1>
               <ul className="list-none tablet:-ml-96 mobile:-ml-20 mobile:mt-10">
                 {project.skills.map((skill, i) => (
-                  <li
-                    key={i}
-                    className="font-urbanist text-lg uppercase font-bold"
-                  >
+                  <li key={i} className="font-urbanist text-lg uppercase font-bold">
                     {skill}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
+
+          {/* Grid Images */}
           <div className="grid tablet:grid-cols-2 tablet:grid-rows-2 w-full h-full gap-2 p-3 mt-10 mobile:grid-cols-1">
             {project.gridImages.map((image, index) => (
               <img
@@ -136,26 +136,49 @@ const SinglePageProject = () => {
               />
             ))}
           </div>
-          <Available project={project} /></div>
-          <div className="loader">
-          {project.gridImages.map((image, index) => (
-            <div className="img-container"><img
-                key={index}
-                src={image}
-                alt={`Project image ${index + 1}`}
-                className="w-full h-full object-cover"
-              /></div>
-              
-            ))}
-        <div className="img-container">
-          <img src={project.hero} alt="" className="w-full h-full object-cover"/>
+
+          {/* Live Demo Link */}
+          {project.liveDemo && (
+            <div className="mt-6 text-center">
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover-link inline-block"
+              >
+                <span>
+                  <span>View Live</span>
+                  <span>View Live</span>
+                </span>
+              </a>
+            </div>
+          )}
+
+          {/* Additional Navigation/Details */}
+          <Available project={project} />
         </div>
-      </div>
-        </div>
-        
       ) : (
         <p>Project not found</p>
       )}
+
+      {/* Loader Animation */}
+      <div className="loader">
+        {project &&
+          project.gridImages.map((image, index) => (
+            <div className="img-container" key={index}>
+              <img
+                src={image}
+                alt={`Project image ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        {project && (
+          <div className="img-container">
+            <img src={project.hero} alt="" className="w-full h-full object-cover" />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
