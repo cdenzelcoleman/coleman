@@ -27,9 +27,9 @@ const SinglePageProject = () => {
   // Parallax configuration
   const parallaxConfig = isMobile()
     ? {
-        firstName: { translateX: [-20, -10], speed: 5 },
+        firstName: { translateX: [-20, -10], speed: 10 },
         lastName: { translateX: [20, -10], speed: 5 },
-        imageProject: { speed: 5 },
+        imageProject: { translateX: [20, -10], speed: 5},
       }
     : {
         firstName: { translateX: [-50, 20], speed: 10 },
@@ -78,9 +78,9 @@ const SinglePageProject = () => {
           <div className="font-clash-grotesk font-bold uppercase tracking-tighter">
             <h1
               ref={firstName}
-              className="tablet:text-10xl mobile:text-7xl tablet:-mt-5 mobile:mt-10"
+              className="tablet:text-10xl mobile:text-7xl tablet:-mt-5 mobile:mt-10 pt-20"
             >
-              {project.firstname}/
+              {project.firstname}
             </h1>
             <h1
               ref={lastName}
@@ -91,11 +91,11 @@ const SinglePageProject = () => {
           </div>
           
           {/* Keywords */}
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
             {project.keywords.map((keyword, i) => (
               <span
                 key={i}
-                className="font-urbanist font-bold uppercase text-sm md:text-base px-3 py-1 bg-opacity-10 bg-font-color rounded-full"
+                className="flex flex-wrap justify-center gap-4"
               >
                 {keyword}
               </span>
@@ -130,11 +130,6 @@ const SinglePageProject = () => {
 
         {/* Project Metadata */}
         <section className="mb-20 md:mb-32 flex flex-col items-center">
-          <div className="w-full flex justify-end mb-8">
-            <span className="font-clash-grotesk text-8xl md:text-10xl opacity-90">
-              {project.month}/
-            </span>
-          </div>
           
           <div className="text-center space-y-6">
             <h2 className="italic text-5xl md:text-7xl opacity-75">
