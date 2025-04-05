@@ -72,7 +72,6 @@ const Projects = ({ onProjectClick }) => {
           >
             <span>
               <span>View Live</span>
-              <span>View Live</span>
             </span>
           </a>
         </div>

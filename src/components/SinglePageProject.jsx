@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import projectsData from "../utils/data";
 import { useParallax } from "react-scroll-parallax";
+import gsap from "gsap";
+import projectsData from "../utils/data";
 import Available from "./Available";
 import ScrollToTop from "../hooks/ScrollToTop";
 import LiquidCursor from "./LiquidCursor";
 import "../animations/hover-animation.css";
 import "../css/loader.css";
-import gsap from "gsap";
 
 const preloadImages = (images) => {
   images.forEach((src) => {
@@ -24,6 +24,7 @@ const SinglePageProject = () => {
   const { name } = useParams();
   const project = projectsData.find((p) => p.name === decodeURIComponent(name));
 
+  // Parallax configuration
   const parallaxConfig = isMobile()
     ? {
         firstName: { translateX: [-20, -10], speed: 5 },
@@ -64,120 +65,145 @@ const SinglePageProject = () => {
     });
   }, []);
 
+  if (!project) return <p className="p-8 text-center">Project not found</p>;
+
   return (
-    <div className="w-full bg-bg-color text-font-color overflow-hidden">
+    <div className="w-full bg-bg-color text-font-color overflow-hidden relative">
       <LiquidCursor />
-      {project ? (
-        <div className="w-full">
-          {/* Project Title */}
-          <div className="font-clash-grotesk font-bold uppercase w-full tablet:text-12xl mobile:text-7xl">
-            <h1 className="tablet:-mt-5 tablet:-ml-40 mobile:mt-10" ref={firstName}>
+
+      {/* Main Content Container */}
+      <main className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-12">
+        {/* Project Header */}
+        <header className="mb-16 md:mb-24 text-center">
+          <div className="font-clash-grotesk font-bold uppercase tracking-tighter">
+            <h1
+              ref={firstName}
+              className="tablet:text-10xl mobile:text-7xl tablet:-mt-5 mobile:mt-10"
+            >
               {project.firstname}/
             </h1>
-            <h1 className="tablet:-mt-28 tablet:ml-64" ref={lastName}>
+            <h1
+              ref={lastName}
+              className="text-7xl md:text-8xl lg:text-10xl md:-mt-20 lg:-mt-28 md:ml-48 lg:ml-64"
+            >
               {project.lastname}
             </h1>
           </div>
-
+          
           {/* Keywords */}
-          <div>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             {project.keywords.map((keyword, i) => (
-              <p key={i} className="font-urbanist font-bold uppercase ml-3">
+              <span
+                key={i}
+                className="font-urbanist font-bold uppercase text-sm md:text-base px-3 py-1 bg-opacity-10 bg-font-color rounded-full"
+              >
                 {keyword}
-              </p>
+              </span>
             ))}
           </div>
+        </header>
 
-          {/* Project Details & Hero */}
-          <div
-            className="grid tablet:grid-cols-3 mobile:grid-cols-1 items-end mobile:flex-col tablet:flex-row font-urbanist p-3 uppercase text-lg mobile:text-sm tablet:text-lg"
-            ref={imageProject}
-          >
-            <p className="tablet:text-right mobile:text-left mr-3">
+        {/* Project Overview Section */}
+        <section
+          ref={imageProject}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20 md:mb-32"
+        >
+          <div className="lg:col-span-1 lg:text-right">
+            <p className="text-lg leading-relaxed text-opacity-80">
               {project.details}
             </p>
-            <div className="mobile:mt-8 tablet:mt-0 col-span-2">
-              <p className="mb-3">{project.description}</p>
+          </div>
+          
+          <div className="lg:col-span-2 space-y-8">
+            <p className="text-xl leading-relaxed text-opacity-90">
+              {project.description}
+            </p>
+            <div className="overflow-hidden rounded-xl shadow-2xl hover:shadow-3xl transition-shadow duration-500">
               <img
                 src={project.hero}
-                alt="image of a project"
-                className="rounded-md filter grayscale hover:grayscale-0 transition duration-500 ease-in-out"
+                alt="Project hero"
+                className="w-full h-auto object-cover rounded-xl filter grayscale hover:grayscale-0 transition-all duration-500 ease-in-out"
               />
             </div>
           </div>
+        </section>
 
-          {/* Month, Year, and Skills */}
-          <div className="w-full tablet:mt-10 tablet:text-10xl mobile:text-7xl font-clash-grotesk">
-            <h1 className="flex justify-end tablet:-mr-32">
+        {/* Project Metadata */}
+        <section className="mb-20 md:mb-32 flex flex-col items-center">
+          <div className="w-full flex justify-end mb-8">
+            <span className="font-clash-grotesk text-8xl md:text-10xl opacity-90">
               {project.month}/
-            </h1>
-            <div className="flex flex-col items-center">
-              <h1 className="tablet:-mt-10 italic">
-                &#40;{project.year}/&#41;
-              </h1>
-              <ul className="list-none tablet:-ml-96 mobile:-ml-20 mobile:mt-10">
-                {project.skills.map((skill, i) => (
-                  <li key={i} className="font-urbanist text-lg uppercase font-bold">
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </span>
           </div>
-
-          {/* Grid Images */}
-          <div className="grid tablet:grid-cols-2 tablet:grid-rows-2 w-full h-full gap-2 p-3 mt-10 mobile:grid-cols-1">
-            {project.gridImages.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Project image ${index + 1}`}
-                className="w-full h-full object-cover rounded-md"
-              />
-            ))}
+          
+          <div className="text-center space-y-6">
+            <h2 className="italic text-5xl md:text-7xl opacity-75">
+              ({project.year})
+            </h2>
+            <ul className="flex flex-wrap justify-center gap-4">
+              {project.skills.map((skill, i) => (
+                <li
+                  key={i}
+                  className="font-urbanist font-bold uppercase text-sm md:text-lg px-4 py-2 bg-bg-accent rounded-full"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
+        </section>
 
-          {/* Live Demo Link */}
-          {project.liveDemo && (
-            <div className="mt-6 text-center">
-              <a
-                href={project.liveDemo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover-link inline-block"
-              >
-                <span>
-                  <span>View Live</span>
-                  <span>View Live</span>
-                </span>
-              </a>
-            </div>
-          )}
-
-          {/* Additional Navigation/Details */}
-          <Available project={project} />
-        </div>
-      ) : (
-        <p>Project not found</p>
-      )}
-
-      {/* Loader Animation */}
-      <div className="loader">
-        {project &&
-          project.gridImages.map((image, index) => (
-            <div className="img-container" key={index}>
+        {/* Image Gallery */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">
+          {project.gridImages.map((image, index) => (
+            <div key={index} className="group relative overflow-hidden rounded-xl">
               <img
                 src={image}
                 alt={`Project image ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl transform group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           ))}
-        {project && (
-          <div className="img-container">
-            <img src={project.hero} alt="" className="w-full h-full object-cover" />
-          </div>
+        </section>
+
+        {/* Live Demo CTA */}
+        {project.liveDemo && (
+          <section className="mb-20 text-center">
+            <a
+              href={project.liveDemo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-link inline-block text-xl md:text-2xl font-medium px-8 py-4 rounded-full bg-bg-accent hover:bg-opacity-80 transition-colors duration-300"
+            >
+              <span className="relative overflow-hidden">
+                <span className="block">View Live Demo</span>
+                <span className="block absolute inset-0">View Live Demo</span>
+              </span>
+            </a>
+          </section>
         )}
+
+        <Available project={project} />
+      </main>
+
+      {/* Preloader Animation */}
+      <div className="loader">
+        {project.gridImages.map((image, index) => (
+          <div className="img-container" key={index}>
+            <img
+              src={image}
+              alt={`Project image ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+        <div className="img-container">
+          <img
+            src={project.hero}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
     </div>
   );

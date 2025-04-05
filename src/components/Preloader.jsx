@@ -16,9 +16,9 @@ const Preloader = ({ onAnimationComplete }) => {
     "Based In Austin, TX",
   ];
 
-  // trigger an overall preloader animation (like fading out the overlay)
+  // overall preloader animation (like fading out)
   useEffect(() => {
-    // fade out the entire preloader after 8 seconds.
+    // fade out after 8 seconds.
     const timer = setTimeout(() => {
       //hide the preloader
       onAnimationComplete && onAnimationComplete();
