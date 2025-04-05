@@ -47,7 +47,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="w-full font-urbanist uppercase p-2 pb-40" id="about">
+    <div className="w-full font-urbanist uppercase p-4 pb-40 pt-10" id="about">
       <div>
         <h1 className="font-clash-grotesk tablet:text-10xl mobile:text-7xl about-title">
           cameron coleman

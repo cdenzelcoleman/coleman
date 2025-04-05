@@ -7,9 +7,9 @@ import gsap from "gsap";
 import "./animations/hover-animation.css";
 
 const Projects = ({ onProjectClick }) => {
-  const [hoveredProjectId, setHoveredProjectId] = useState(null);
+  const [hoveredProjectId, setHoveredProjectId] = useState();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { ref: title } = useParallax({ translateX: [10, -40], speed: 5 });
+  const { ref: title } = useParallax({ translateX: [60, -43], speed: 5 });
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
@@ -71,7 +71,7 @@ const Projects = ({ onProjectClick }) => {
             className="hover-link"
           >
             <span>
-              <span>View Live</span>
+              <span>Click to View</span>
             </span>
           </a>
         </div>
