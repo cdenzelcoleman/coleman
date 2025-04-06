@@ -10,6 +10,22 @@ const Projects = ({ onProjectClick }) => {
   const [hoveredProjectId, setHoveredProjectId] = useState();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { ref: title } = useParallax({ translateX: [60, -43], speed: 5 });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    try {
+      // Simulate loading if needed
+      const timer = setTimeout(() => setLoading(false), 1000);
+      return () => clearTimeout(timer);
+    } catch (err) {
+      setError(err);
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) return <div className="loading-projects">Loading projects...</div>;
+  if (error) return <div className="error">Failed to load projects</div>;
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
