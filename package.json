@@ -1,14 +1,12 @@
 {
-  "name": "coleman",
+ "name": "coleman",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "generate-sitemap": "node generate-sitemap.js",
-    "build": "npm run generate-sitemap && vite build"
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
