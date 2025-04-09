@@ -51,61 +51,142 @@ const Landing = () => {
 
   return (
     <div className="w-full h-screen overflow-hidden">
-      <div className="fixed top-0 left-0 w-full #ECECED z-50">
-      <div className="flex justify-between items-start overflow-hidden tablet:flex-row mobile:flex-col">
-        <div className="flex items-center flex-grow min-w-[300px]">
-          <div className="font-extrabold flex flex-col font-urbanist tablet:ml-5 mobile:-ml-24">
-            <h1 className="h2-animation">CAMERON COLEMAN</h1>
-            <div className="h2-animation font-extrabold">
-              <TypeAnimation
-                sequence={[
-                  'FULL-STACK DEVELOPER',
-                  2000,
-                  'MOBILE APP DEVELOPER',
-                  2000,
-                  'UI/UX ENGINEER',
-                  2000,
-                  'CLOUD ARCHITECT',
-                  2000
-                ]}
-                wrapper="span"
-                cursor={true}
-                repeat={Infinity}
-                cursorStyle={{
-                  color: '#FF0000',
-                  width: '2px',
-                  animation: 'blink .75s step-end infinite'
-                }}
-                style={{
-                  fontSize: 'inherit',
-                  display: 'inline-block'
-                }}
-              />
+      {/* Mobile Header */}
+      <div className="fixed top-0 left-0 w-full z-50 mobile:block tablet:hidden bg-bg-color/95 backdrop-blur-sm py-4">
+        <div className="flex flex-col items-center px-4">
+          <h1 className="text-2xl font-bold text-center">CAMERON COLEMAN</h1>
+          <div className="text-center mt-2">
+            <TypeAnimation
+              sequence={[
+                'FULL-STACK DEVELOPER',
+                2000,
+                'MOBILE APP DEVELOPER',
+                2000,
+                'UI/UX ENGINEER',
+                2000,
+                'CLOUD ARCHITECT',
+                2000
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{ fontSize: '0.875rem' }}
+              cursorStyle={{
+                width: '2px',
+                animation: 'blink .75s step-end infinite'
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Header */}
+      <div className="fixed top-0 left-0 w-full #ECECED z-50 mobile:hidden tablet:block">
+        <div className="flex justify-between items-start overflow-hidden tablet:flex-row">
+          <div className="flex items-center flex-grow min-w-[300px]">
+            <div className="font-extrabold flex flex-col font-urbanist tablet:ml-5">
+              <h1 className="h2-animation">CAMERON COLEMAN</h1>
+              <div className="h2-animation font-extrabold">
+                <TypeAnimation
+                  sequence={[
+                    'FULL-STACK DEVELOPER',
+                    2000,
+                    'MOBILE APP DEVELOPER',
+                    2000,
+                    'UI/UX ENGINEER',
+                    2000,
+                    'CLOUD ARCHITECT',
+                    2000
+                  ]}
+                  wrapper="span"
+                  cursor={true}
+                  repeat={Infinity}
+                  cursorStyle={{
+                    color: '#FF0000',
+                    width: '2px',
+                    animation: 'blink .75s step-end infinite'
+                  }}
+                  style={{
+                    fontSize: 'inherit',
+                    display: 'inline-block'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="font-urbanist flex-shrink-0 min-w-[200px] tablet:mr-5">
+            <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">LOCATION</p>
+            <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">
+              AUSTIN, TX {hours}
+              <span className="blink-colon">:</span>
+              {minutes} {ampm}
+            </p>
+          </div>
+
+          <div className="font-urbanist flex flex-col mr-5 flex-shrink-0 min-w-[200px]">
+            <p className="font-extrabold whitespace-nowrap text-center tablet:text-right">NAVIGATION</p>
+            <div className="font-extrabold flex justify-end gap-3">
+              {["about", "projects", "contact"].map((link) => (
+                <a
+                  key={link}
+                  href={`#${link}`}
+                  className="hover-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById(link)?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <span>
+                    <span>{link.toUpperCase()}</span>
+                    <span>{link.toUpperCase()}</span>
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="font-urbanist flex-shrink-0 min-w-[200px] tablet:mr-5 mobile:mr-0 ">
-          <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">LOCATION</p>
-          <p className="font-extrabold whitespace-nowrap text-center tablet:text-left">
-            AUSTIN, TX {hours}
-            <span className="blink-colon">:</span>
-            {minutes} {ampm}
-          </p>
+      {/* Main Content (Shared) */}
+      <div className="mt-[30vh] mobile:px-4 tablet:mt-80">
+        <div className="flex flex-col items-center text-center">
+          <div className="font-clash-grotesk" ref={titleDesigner}>
+            <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
+          </div>
+          <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-28" ref={titleDeveloper}>
+            <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
+          </div>
+          <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
+            Crafting clean, efficient code to solve complex challenges.
+          </h2>
         </div>
+      </div>
 
-        {/* Navigation */}
-        <div className="font-urbanist flex flex-col mr-5 flex-shrink-0 min-w-[200px]">
-          <p className="font-extrabold whitespace-nowrap text-center tablet:text-l-right">NAVIGATION</p>
-          <div className="font-extrabold flex justify-end gap-3">
+      {/* Mobile Bottom Navigation */}
+      <div className="fixed bottom-0 w-full z-50 mobile:block tablet:hidden bg-[#4545ee]/95 backdrop-blur-lg py-4">      {/* <div className="fixed bottom-0 w-full #4545ee bg-bg-color/95 backdrop-blur-lg mobile:block tablet:hidden py-3"> */}
+        <div className="flex justify-around items-center">
+          <div className="text-center">
+            <p className="text-sm font-bold">
+              {hours}<span className="blink-colon">:</span>{minutes} {ampm}
+            </p>
+            <p className="text-xs">LOCATION</p>
+            <p className="font-bold whitespace-nowrap text-xs">
+              AUSTIN, TX
+              </p>
+          </div>
+          <div className="flex gap-4">
             {["about", "projects", "contact"].map((link) => (
               <a
                 key={link}
                 href={`#${link}`}
-                className="hover-link"
+                className="hover-link text-sm"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(link)?.scrollIntoView({ behavior: "smooth" });
+                  document.getElementById(link)?.scrollIntoView({ 
+                    behavior: "smooth",
+                    block: "start"
+                  });
                 }}
               >
                 <span>
@@ -116,22 +197,6 @@ const Landing = () => {
             ))}
           </div>
         </div>
-      </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="mt-60 tablet:mt-80">
-        <div className="flex justify-center items-center font-clash-grotesk tablet:ml-40" ref={titleDesigner}>
-          <h1 className="tablet:text-10xl mobile:text-7xl">FULL-STACK</h1>
-        </div>
-        
-        <div className="flex justify-center items-center font-clash-grotesk tablet:-mt-28" ref={titleDeveloper}>
-          <h1 className="tablet:text-10xl mobile:text-7xl">DEVELOPER</h1>
-        </div>
-
-        <h2 className="text-center font-urbanist tablet:text-lg mobile:text-sm mt-6">
-          Crafting clean, efficient code to solve complex challenges.
-        </h2>
       </div>
     </div>
   );

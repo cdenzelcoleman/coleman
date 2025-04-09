@@ -49,7 +49,7 @@ const About = () => {
   return (
     <div className="w-full font-urbanist uppercase p-4 pb-40 pt-10" id="about">
       <div>
-        <h1 className="font-clash-grotesk tablet:text-10xl mobile:text-7xl about-title">
+        <h1 className="font-clash-grotesk tablet:text-10xl mobile:text-7xl mobile:pt-14 about-title">
           cameron coleman
         </h1>
       </div>
