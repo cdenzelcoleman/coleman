@@ -31,7 +31,7 @@ const Projects = ({ onProjectClick }) => {
         <div className="flex ml-96" ref={title}>
           <h1 className="font-clash-grotesk text-12xl -ml-52">PROJECTS</h1>
         </div>
-        <p className="w-96 -ml-80 -mt-32 p-2">
+        <p className="w-96 -ml-80 -mt-32 p-2 pt-10">
           Explore a curated selection of projects I've guided from concept to completion.
         </p>
       </div>
