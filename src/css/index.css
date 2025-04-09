@@ -93,3 +93,9 @@ button:hover ~ .liquid-cursor,
 /* Utilities */
 .min-w-\[300px\] { min-width: 300px; }
 .min-w-\[200px\] { min-width: 200px; }
+
+@media (max-width: 768px) {
+  .mobile\:text-6xl { font-size: 3.75rem; }
+  .mobile\:text-4xl { font-size: 2.25rem; }
+  .mobile\:py-8 { padding: 2rem 0; }
+}

@@ -164,7 +164,7 @@ const Landing = () => {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 w-full z-50 mobile:block tablet:hidden bg-[#4545ee]/95 backdrop-blur-lg py-4">      {/* <div className="fixed bottom-0 w-full #4545ee bg-bg-color/95 backdrop-blur-lg mobile:block tablet:hidden py-3"> */}
+      <div className="fixed bottom-0 w-full z-50 mobile:block tablet:hidden bg-[#4545ee]/95 backdrop-blur-lg py-4">
         <div className="flex justify-around items-center">
           <div className="text-center">
             <p className="text-sm font-bold">
