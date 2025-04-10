@@ -96,7 +96,16 @@ const Landing = () => {
                     'UI/UX ENGINEER',
                     2000,
                     'CLOUD ARCHITECT',
-                    2000
+                    2000,
+                     'WEB DEVELOPER',
+                    2000,
+                    'FRONT-END DEVELOPER',
+                    2000,
+                    'BACK-END DEVELOPER',
+                    2000,
+                    'SOFTWARE ENGINEER',
+                    2000,
+                    
                   ]}
                   wrapper="span"
                   cursor={true}

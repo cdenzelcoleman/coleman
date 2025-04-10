@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const TypeJobTitles = ({
   titles = [],
-  typingSpeed = 50, // milliseconds per character
+  typingSpeed = 30, // milliseconds per character
   deletingSpeed = 10,
   pauseTime = 300,
 }) => {

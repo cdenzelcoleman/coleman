@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
+// import { TypeAnimation } from "react-type-animation";
 import "../css/panelPreloader.css" 
 
 import TypeJobTitles from "./TypeJobTitles"; 
@@ -11,8 +12,6 @@ const Preloader = ({ onAnimationComplete }) => {
     "Software Engineer",
     "Back-End Developer",
     "UI/UX Developer",
-    "Web Developer",
-    "Front-End Developer",
     "Based In Austin, TX",
   ];
 
@@ -22,7 +21,7 @@ const Preloader = ({ onAnimationComplete }) => {
     const timer = setTimeout(() => {
       //hide the preloader
       onAnimationComplete && onAnimationComplete();
-    }, 8000); //  duration 
+    }, 3500); //  duration 
 
     return () => clearTimeout(timer);
   }, [onAnimationComplete]);

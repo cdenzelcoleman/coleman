@@ -1,12 +1,12 @@
+// src/components/MobileProjects.jsx
 import React from "react";
 import projectsData from "../utils/data";
 
 const MobileProjects = ({ onProjectClick }) => {
   return (
-    <div className="mobile:block tablet:hidden">
+    <div id="projects" className="mobile:block tablet:hidden">
       <div className="px-4">
-        <h1 className="text-4xl font-clash-grotesk text-center mb-8">PROJECTS</h1>
-        
+        <h1 className="text-4xl font-clash-grotesk text-center mb-8 pt-40">PROJECTS</h1>
         {projectsData.map((project) => (
           <div 
             key={project.id} 

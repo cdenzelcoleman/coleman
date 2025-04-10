@@ -1,5 +1,5 @@
 import React from "react";
-import "../public/pdf/CameronColemanFullStackResume.pdf";
+// import "../public/pdf/CameronColemanFullStackResume.pdf";
 import "./css/contact.css";
 
 const Contact = () => {
