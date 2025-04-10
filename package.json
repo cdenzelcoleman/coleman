@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b main",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "start": "vite preview",
     "lint": "eslint .",
@@ -39,7 +39,6 @@
     "express": "^5.1.0",
     "framer-motion": "^12.6.2",
     "gsap": "^3.12.7",
-    "lenis": "^1.2.3",
     "method-override": "^3.0.0",
     "mongoose": "^8.13.2",
     "morgan": "^1.10.0",
