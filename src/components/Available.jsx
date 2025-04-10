@@ -17,11 +17,6 @@ const Available = ({ project }) => {
       <div className="flex justify-center items-center main-container w-full grow p-5">
         <div className="tablet:pt-10 tablet:pl-10 tablet:pr-10 mobile:p-6 rounded-3xl bg-font-color uppercase flex flex-col justify-between grow w-full">
           <div className="flex flex-col tablet:items-end mobile:text-6xl mobile:items-start mobile:ml-0 tablet:ml-0">
-          <h1 className="tablet:text-11xl desktop:text-14xl font-clash-grotesk text-bg-color uppercase tablet:-mt-9 w-full flex justify-center">
-            </h1>
-            <p className="text-bg-color tablet:-mt-15 tablet:w-2/6 mobile:w-80 tablet:text-right tablet:text-lg mobile:text-sm">
-              You can view this project in more details here.
-            </p>
           </div>
           <div className="text-bg-color flex tablet:flex-row mobile:flex-col tablet:items-end tablet:justify-between pt-20 font-urbanist font-bold text-lg -mb-3">
             <div className="flex flex-col">
