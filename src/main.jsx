@@ -6,13 +6,14 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import SmoothScroll from "./utils/SmoothScroll"
 
+import { HashRouter } from "react-router-dom" // Changed from BrowserRouter
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <HashRouter>
     <SmoothScroll>
       <App />
       <Analytics />
       <SpeedInsights />
     </SmoothScroll>
-  </BrowserRouter>
+  </HashRouter>
 )

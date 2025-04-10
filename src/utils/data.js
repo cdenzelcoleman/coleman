@@ -1,9 +1,5 @@
-// src/utils/data.js
-
-// Eagerly load all PNG assets from the assets folder (optional)
 import.meta.glob("../assets/**/*.png", { eager: true });
 
-// Import campaign images explicitly so that Vite bundles them
 import campaignImage from "../assets/campaign/2.png";
 import campaignGrid1 from "../assets/campaign/1.png";
 import campaignGrid2 from "../assets/campaign/C.png";

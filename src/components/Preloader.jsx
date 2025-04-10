@@ -17,7 +17,6 @@ const Preloader = ({ onAnimationComplete }) => {
 
   // overall preloader animation (like fading out)
   useEffect(() => {
-    // fade out after 8 seconds.
     const timer = setTimeout(() => {
       //hide the preloader
       onAnimationComplete && onAnimationComplete();

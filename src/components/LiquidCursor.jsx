@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 const LiquidCursor = () => {
-  const numBlobs = 20; // number of blobs to render
+  const numBlobs = 10; // number of blobs to render
   const blobs = useRef([]);
   // Start all blobs at the center
   const positions = useRef(

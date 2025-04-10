@@ -24,7 +24,6 @@ const SinglePageProject = () => {
   const { name } = useParams();
   const project = projectsData.find((p) => p.name === decodeURIComponent(name));
 
-  // Parallax configuration
   const parallaxConfig = isMobile()
     ? {
         firstName: { translateX: [-20, -10], speed: 10 },
@@ -128,7 +127,6 @@ const SinglePageProject = () => {
           </div>
         </section>
 
-        {/* Project Metadata */}
         <section className="mb-20 md:mb-32 flex flex-col items-center">
           
           <div className="text-center space-y-6">
@@ -161,7 +159,6 @@ const SinglePageProject = () => {
           ))}
         </section>
 
-        {/* Live Demo CTA */}
         {project.liveDemo && (
           <section className="mb-20 text-center">
             <a

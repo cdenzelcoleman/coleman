@@ -64,7 +64,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 
-/*Hover effects */
 a:hover ~ .liquid-cursor,
 button:hover ~ .liquid-cursor,
 .hover-effect:hover ~ .liquid-cursor {
@@ -73,10 +72,9 @@ button:hover ~ .liquid-cursor,
 }
 
 .overlay {
-  z-index: 9998; /* Below cursor */
+  z-index: 9998; 
 }
 
-/*  Animations */
 @keyframes blink {
   0%, 100% { opacity: 1 }
   50% { opacity: 0 }
@@ -90,7 +88,6 @@ button:hover ~ .liquid-cursor,
   vertical-align: text-top;
 }
 
-/* Utilities */
 .min-w-\[300px\] { min-width: 300px; }
 .min-w-\[200px\] { min-width: 200px; }
 

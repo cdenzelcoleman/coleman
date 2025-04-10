@@ -32,37 +32,31 @@ const App = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Initialize Lenis on component mount
     const lenis = new Lenis({
-      duration: 1.2, // Adjust the smoothness of the scroll
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth easing function
       direction: "vertical",
       smooth: true,
     });
 
-    // Hook Lenis scroll event to GSAP's ScrollTrigger
     lenis.on("scroll", () => {
       ScrollTrigger.update();
     });
 
-    // Add Lenis to GSAP's ticker
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
 
-    gsap.ticker.lagSmoothing(0); // Disable GSAP lag smoothing for consistent animation
+    gsap.ticker.lagSmoothing(0);
 
-    lenisRef.current = lenis; // Save reference to Lenis instance
+    lenisRef.current = lenis;
 
     return () => {
-      // Clean up when the component is unmounted
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
-      lenis.destroy(); // Destroy Lenis instance to avoid memory leaks
     };
   }, []);
 
   const handleProjectClick = (projectName) => {
-    navigate(`/project/${encodeURIComponent(projectName)}`); // Navigate to project page when project is clicked
+    navigate(`/project/${encodeURIComponent(projectName)}`); 
   };
 
   return (

@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-import Lenis from "lenis";
+import Lenis from '@studio-freight/lenis';
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Mobile components
@@ -23,8 +23,6 @@ import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
 import TechStack from "./TechStack";
 import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
-
-// Styles
 import "./css/lenis.css";
 import "./animations/hover-animation.css";
 import "./css/loader.css";
@@ -99,7 +97,7 @@ const App = () => {
           className="content-wrapper"
           style={{ visibility: isLoaded ? "visible" : "hidden" }}
         >
-          {/* Mobile-specific components */}
+          {/* Mobile components */}
           {isMobile && (
             <Routes location={location} key={location.pathname}>
               <Route
@@ -117,7 +115,7 @@ const App = () => {
             </Routes>
           )}
 
-          {/* Desktop-specific components */}
+          {/* Desktop components */}
           {!isMobile && (
             <Routes location={location} key={location.pathname}>
               <Route
@@ -137,7 +135,7 @@ const App = () => {
           )}
         </div>
 
-        {/* Common Overlay */}
+        {/* Overlay */}
         <div className="overlay" style={{ zIndex: 9998 }}>
           <div className="col mobile:text-sm tablet:text-5xl">
             <h2 className="headline">
