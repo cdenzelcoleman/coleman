@@ -8,7 +8,7 @@ const BackgroundColorChanger = () => {
   useEffect(() => {
     // About background color fade
     gsap.to("body", {
-      backgroundColor: "#a07178", // Color for About
+      backgroundColor: "#a07178", 
       ease: "none",
       scrollTrigger: {
         trigger: "#about",
@@ -20,7 +20,7 @@ const BackgroundColorChanger = () => {
 
     // Projects background color fade
     gsap.to("body", {
-      backgroundColor: "#a07178", //color for Projects
+      backgroundColor: "#a07178",
       ease: "none",
       scrollTrigger: {
         trigger: "#projects",
@@ -32,7 +32,7 @@ const BackgroundColorChanger = () => {
 
     // Contact background color fade
     gsap.to("body", {
-      backgroundColor: "#776274", // Color for Contact
+      backgroundColor: "#776274", 
       ease: "none",
       scrollTrigger: {
         trigger: "#contact",
