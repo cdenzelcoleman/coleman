@@ -3,7 +3,6 @@ import { useSpring, animated } from "@react-spring/web";
 import { useParallax } from "react-scroll-parallax";
 import projectsData from "./utils/data";
 import HoverComponent from "./components/HoverComponent";
-import gsap from "gsap";
 import "./animations/hover-animation.css";
 
 const Projects = ({ onProjectClick }) => {

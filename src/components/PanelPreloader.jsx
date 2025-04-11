@@ -4,7 +4,7 @@ import "../css/panelPreloader.css";
 
 const PanelPreloader = ({ onComplete }) => {
   useEffect(() => {
-    // Animate all panels upward with a stagger effect
+    // Animate all panels upward
     gsap.to(".panel", {
       y: "-100%",
       duration: 1.5,

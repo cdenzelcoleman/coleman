@@ -1,5 +1,5 @@
 import React from "react";
-// import "../public/pdf/CameronColemanFullStackResume.pdf";
+import "../public/pdf/CameronColemanFullStackResume.pdf";
 import "./css/contact.css";
 
 const Contact = () => {
@@ -43,8 +43,8 @@ const Contact = () => {
                 <ul>
                   <li>
                     <a
-                      href="/pdf/Cameron_Coleman_Full_Stack_Resume.pdf"
-                      download="Cameron_Coleman_Full_Stack_Resume"
+                      href="./pdf/CameronColemanFullStackResume.pdf"
+                      download="CameronColemanFullStackResume"
                       className="hover-link"
                       target="_blank"
                     >

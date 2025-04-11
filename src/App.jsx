@@ -6,14 +6,12 @@ import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import Lenis from '@studio-freight/lenis';
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { BrowserRouter } from "react-router-dom"; 
 
 // Mobile components
 import MobileContact from './components/MobileContact';
 import MobileProjects from './components/MobileProjects';
 
 // Desktop components
-import PanelPreloader from "./components/PanelPreloader";
 import Preloader from "./components/Preloader";
 import LiquidCursor from "./components/LiquidCursor";
 import BackgroundColorChanger from "./components/BackgroundColorChanger";

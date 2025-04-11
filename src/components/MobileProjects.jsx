@@ -1,4 +1,3 @@
-// src/components/MobileProjects.jsx
 import React from "react";
 import projectsData from "../utils/data";
 
