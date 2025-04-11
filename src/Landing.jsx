@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import DateObject from "react-date-object";
 import gsap from "gsap";
 import "./css/styles.css";

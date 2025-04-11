@@ -4,7 +4,7 @@ import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-// Register ScrollTrigger with GSAP
+//ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const SmoothScroll = ({ children }) => {
@@ -18,15 +18,13 @@ const SmoothScroll = ({ children }) => {
       normalizeWheel: true,
     });
 
-    // Update GSAP ScrollTrigger on scroll
+    // Update ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
-    // Add Lenis to the GSAP ticker
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
 
     return () => {
-      // Clean up the ticker and destroy Lenis
       gsap.ticker.remove((time) => {
         lenis.raf(time * 1000);
       });

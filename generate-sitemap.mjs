@@ -2,12 +2,12 @@ import { SitemapStream, streamToPromise } from 'sitemap';
 import { createWriteStream } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import projectsData from '../src/utils/data.js'; // Import your projects data
+import projectsData from '../src/utils/data.js'; // projects data
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Generate actual project URLs
+// project URLs
 const projectRoutes = projectsData.map(project => ({
   url: `/project/${encodeURIComponent(project.name)}/`,
   changefreq: 'weekly',

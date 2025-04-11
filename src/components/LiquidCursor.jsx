@@ -16,12 +16,12 @@ const LiquidCursor = () => {
   useEffect(() => {
     const updatePositions = () => {
       blobs.current.forEach((blob, index) => {
-        // For the first blob, target is the mouse.
-        // For subsequent blobs, target is the previous blob's position.
+        // first blob, target is the mouse.
+        // other blobs, target is the previous blob
         const target = index === 0 ? mouse.current : positions.current[index - 1];
         const dx = target.x - positions.current[index].x;
         const dy = target.y - positions.current[index].y;
-        // Using a fixed speed factor for a smooth chain effect
+        //fixed speed factor/smooth chain effect
         const speed = 0.2;
         positions.current[index].x += dx * speed;
         positions.current[index].y += dy * speed;
@@ -46,7 +46,7 @@ const LiquidCursor = () => {
     };
   }, []);
 
-  // Prevent the custom cursor on mobile devices
+  // custom cursor on mobile devices
   const isMobile = () =>
     window.matchMedia('(pointer: coarse)').matches ||
     'ontouchstart' in window ||

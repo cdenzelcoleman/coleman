@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
-// import { TypeAnimation } from "react-type-animation";
 import "../css/panelPreloader.css" 
 
 import TypeJobTitles from "./TypeJobTitles"; 
@@ -15,7 +14,7 @@ const Preloader = ({ onAnimationComplete }) => {
     "Based In Austin, TX",
   ];
 
-  // overall preloader animation (like fading out)
+  // overall preloader animation 
   useEffect(() => {
     const timer = setTimeout(() => {
       //hide the preloader

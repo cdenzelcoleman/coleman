@@ -2,20 +2,13 @@ import.meta.glob("../assets/**/*.png", { eager: true });
 
 import campaignImage from "../assets/campaign/2.png";
 import campaignGrid1 from "../assets/campaign/1.png";
-import campaignGrid2 from "../assets/campaign/C.png";
-import campaignGrid3 from "../assets/campaign/C2.png";
 import campaignGrid4 from "../assets/campaign/her.png";
-import campaignGrid5 from "../assets/campaign/NC.png";
 import venturevillasImage from "../assets/venturevillas/VV.png";
-import venturevillasGrid1 from "../assets/venturevillas/VV2.png";
-import venturevillasGrid2 from "../assets/venturevillas/VV3.png";
 import venturevillasGrid3 from "../assets/venturevillas/VV4.png";
 import venturevillasGrid4 from "../assets/venturevillas/VV5.png";
 import comicreviewboardsImage from "../assets/comicreviewboards/CRB.png";
 import comicreviewboardsGrid1 from "../assets/comicreviewboards/CRB2.png";
 import comicreviewboardsGrid2 from "../assets/comicreviewboards/CRB3.png";
-import comicreviewboardsGrid3 from "../assets/comicreviewboards/CRB6.png";
-import comicreviewboardsGrid4 from "../assets/comicreviewboards/CRB10.png";
 
 
 const projectsData = [
