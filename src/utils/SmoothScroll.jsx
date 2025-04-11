@@ -1,32 +1,40 @@
-import { useEffect } from 'react'
-import Lenis from '@studio-freight/lenis'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+// src/utils/SmoothScroll.jsx
+import React, { useEffect } from 'react';
+import Lenis from '@studio-freight/lenis';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+// Register ScrollTrigger with GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 const SmoothScroll = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.5,
       smoothWheel: true,
       syncTouch: true,
-      wheelMultiplier: 1.2,  
-      touchMultiplier: 2,    
-      normalizeWheel: true  
-    })
+      wheelMultiplier: 1.2,
+      touchMultiplier: 2,
+      normalizeWheel: true,
+    });
 
-    lenis.on('scroll', ScrollTrigger.update)
-    
+    // Update GSAP ScrollTrigger on scroll
+    lenis.on("scroll", ScrollTrigger.update);
+    // Add Lenis to the GSAP ticker
     gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
-    })
+      lenis.raf(time * 1000);
+    });
 
     return () => {
-      lenis.destroy()
-      gsap.ticker.remove((time) => lenis.raf(time * 1000))
-    }
-  }, [])
+      // Clean up the ticker and destroy Lenis
+      gsap.ticker.remove((time) => {
+        lenis.raf(time * 1000);
+      });
+      lenis.destroy();
+    };
+  }, []);
 
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
 
-export default SmoothScroll
+export default SmoothScroll;
