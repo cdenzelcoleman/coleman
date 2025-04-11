@@ -6,7 +6,6 @@ import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import Lenis from '@studio-freight/lenis';
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { BrowserRouter } from "react-router-dom"; 
 
 // Mobile components
 import MobileContact from './components/MobileContact';
