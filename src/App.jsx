@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-import Lenis from '@studio-freight/lenis';
+// import Lenis from '@studio-freight/lenis';
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Mobile components
@@ -22,7 +22,7 @@ import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
 import TechStack from "./TechStack";
 import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
-import "./css/lenis.css";
+// import "./css/lenis.css";
 import "./animations/hover-animation.css";
 import "./css/loader.css";
 import "./css/index.css";

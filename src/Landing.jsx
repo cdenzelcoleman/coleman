@@ -59,13 +59,21 @@ const Landing = () => {
             <TypeAnimation
               sequence={[
                 'FULL-STACK DEVELOPER',
-                2000,
-                'MOBILE APP DEVELOPER',
-                2000,
-                'UI/UX ENGINEER',
-                2000,
-                'CLOUD ARCHITECT',
-                2000
+                    2000,
+                    'MOBILE APP DEVELOPER',
+                    2000,
+                    'UI/UX ENGINEER',
+                    2000,
+                    'CLOUD ARCHITECT',
+                    2000,
+                     'WEB DEVELOPER',
+                    2000,
+                    'FRONT-END DEVELOPER',
+                    2000,
+                    'BACK-END DEVELOPER',
+                    2000,
+                    'SOFTWARE ENGINEER',
+                    2000,
               ]}
               wrapper="span"
               cursor={true}
@@ -163,7 +171,7 @@ const Landing = () => {
           <div className="font-clash-grotesk" ref={titleDesigner}>
             <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
           </div>
-          <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-28" ref={titleDeveloper}>
+          <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-32" ref={titleDeveloper}>
             <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
           </div>
           <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
