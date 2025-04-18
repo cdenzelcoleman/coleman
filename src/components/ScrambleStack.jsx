@@ -1,61 +1,57 @@
 import React, { useEffect, useState } from "react";
-// import "./css/index.css";
+// import "./css/index.css"; 
 
 const techStack = [
-  "React", "JavaScript", "HTML", "CSS", "React Native", "Node.js", "Django",
-  "Python", "SQL", "PostgreSQL", "MongoDB", "NEON", "AWS", "Kubernetes",
-  "Docker", "OpenAI API, Express.js", "Heroku", "Python"
+  "Python","React", "JavaScript","Docker", "HTML", "CSS", "Node", "Django", "PostgreSQL",
+  "MongoDB", "NEON", "AWS", "Kubernetes",
+   "OpenAI API", "Express", "Heroku", 
+   "React Native", "Git", "GitHub","SQL"
 ];
 
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+const characters = "█▓▒░<>|!@#$%^&*()_+=-ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-const scramble = (word, current) => {
-  let result = "";
-  for (let i = 0; i < word.length; i++) {
-    result += i < current ? word[i] : characters[Math.floor(Math.random() * characters.length)];
+const scrambleWord = (target, progress) => {
+  let scrambled = "";
+  for (let i = 0; i < target.length; i++) {
+    scrambled += i < progress
+      ? target[i]
+      : characters[Math.floor(Math.random() * characters.length)];
   }
-  return result;
+  return scrambled;
 };
 
 const ScrambleStack = () => {
-  const [displayed, setDisplayed] = useState("");
   const [index, setIndex] = useState(0);
   const [frame, setFrame] = useState(0);
+  const [current, setCurrent] = useState("");
 
   useEffect(() => {
-    if (index >= techStack.length) return;
-
     const word = techStack[index];
     const interval = setInterval(() => {
       if (frame >= word.length) {
         clearInterval(interval);
         setTimeout(() => {
-          setIndex((i) => i + 1);
+          setIndex((prev) => (prev + 1) % techStack.length); 
           setFrame(0);
-        }, 800);
+        }, 1200);
       } else {
         setFrame((f) => f + 1);
       }
-    }, 50);
+    }, 150); 
 
     return () => clearInterval(interval);
   }, [index, frame]);
 
   useEffect(() => {
-    if (index < techStack.length) {
-      const word = techStack[index];
-      const scrambled = scramble(word, frame);
-      setDisplayed(scrambled);
-    }
+    const word = techStack[index];
+    setCurrent(scrambleWord(word, frame));
   }, [frame, index]);
 
   return (
-    <div className="mt-10 text-center font-mono text-xl tablet:text-3xl tracking-widest text-bg-color">
-      <p className="opacity-70">TECH I USE:</p>
-      <div className="mt-4">
-        <span className="inline-block px-4 py-2 bg-black text-white rounded transition-all duration-200">
-          {displayed}
-        </span>
+   <div className="mt-10 text-center font-clash-grotesk tablet:text-8xl mobile:text-5xl uppercase text-black-400 tracking-tight">
+      <p className="text-black-400 opacity-70 mb-4">TECH STACK:</p>
+      <div className="inline-block px-6 py-3 bg-black text-green-300 rounded shadow-xl border border-green-700 animate-pulse duration-700">
+        {current}
       </div>
     </div>
   );
