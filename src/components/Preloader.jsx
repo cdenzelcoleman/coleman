@@ -7,10 +7,10 @@ import TypeJobTitles from "./TypeJobTitles";
 const Preloader = ({ onAnimationComplete }) => {
   // job titles 
   const jobTitles = [
-    "Full-Stack Developer",
+    "Full-Stack Dev",
     "Software Engineer",
-    "Back-End Developer",
-    "UI/UX Developer",
+    "Back-End Dev",
+    "UI/UX Dev",
     "Based In Austin, TX",
   ];
 

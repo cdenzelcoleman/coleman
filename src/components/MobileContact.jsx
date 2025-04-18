@@ -31,10 +31,9 @@ const MobileContact = () => {
 
           {/* Resume & Contact Info */}
           <div className="flex flex-col items-center space-y-4">
-            <a href="/pdf/CameronColemanFullStackResume.pdf"
-               download="CameronColemanFullStackResume"
-               className="hover-link text-lg">
-              <span>Download Resume</span>
+          <a href={`${import.meta.env.BASE_URL}pdf/CameronColemanFullStackResume.pdf`} download className="hover-link">
+
+              <span>Resume</span>
             </a>
             
             <a href="tel:+15123174414" className="hover-link text-lg">

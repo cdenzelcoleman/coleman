@@ -9,6 +9,18 @@
   --font-color: #1c1c22;
 }
 
+body > #root > div.content-wrapper {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  body > #root > div.content-wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 @font-face {
   font-family: 'Clash Grotesk Bold';
   src: url('../fonts/ClashGrotesk-Bold.otf') format('opentype');

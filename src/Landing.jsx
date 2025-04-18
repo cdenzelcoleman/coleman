@@ -50,7 +50,8 @@ const Landing = () => {
   const ampm = time.format("A");
 
   return (
-    <div className="w-full h-screen overflow-hidden">
+    <div className="w-full min-h-screen overflow-x-hidden">
+
       {/* Mobile Header */}
       <div className="fixed top-0 left-0 w-full z-50 mobile:block tablet:hidden bg-bg-color/95 backdrop-blur-sm py-4">
         <div className="flex flex-col items-center px-4">
@@ -166,23 +167,26 @@ const Landing = () => {
       </div>
 
       {/* Main Content (Shared) */}
-      <div className="mt-[30vh] mobile:px-4 tablet:mt-80">
-        <div className="flex flex-col items-center text-center">
-          <div className="font-clash-grotesk" ref={titleDesigner}>
-            <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
-          </div>
-          <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-32" ref={titleDeveloper}>
-            <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
-          </div>
-          <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
-            Crafting clean, efficient code to solve complex challenges.
-          </h2>
-        </div>
+      <div className="mt-[30vh] mobile:px-4 tablet:mt-80 px-4 tablet:px-10">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+    <div className="w-full">
+      <div className="font-clash-grotesk" ref={titleDesigner}>
+        <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
       </div>
+      <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-32" ref={titleDeveloper}>
+        <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
+      </div>
+      <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
+        Crafting clean, efficient code to solve complex challenges.
+      </h2>
+    </div>
+  </div>
+</div>
+
 
       {/* Mobile Bottom Navigation */}
       <div className="fixed bottom-0 w-full z-50 mobile:block tablet:hidden bg-[#F2F0EF]/95 backdrop-blur-lg py-4">
-        <div className="flex justify-around items-center">
+       <div className="flex justify-between items-center w-full px-4">
           <div className="text-center">
             <p className="text-sm font-bold">
               {hours}<span className="blink-colon">:</span>{minutes} {ampm}

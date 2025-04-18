@@ -42,14 +42,11 @@ const Contact = () => {
               <div className="tablet:ml-20">
                 <ul>
                 <li className="-mt-5">
-  <a 
-    href="/pdf/CameronColemanFullStackResume.pdf" 
-    download 
-    className="hover-link"
-  >
+                <a href={`${import.meta.env.BASE_URL}pdf/CameronColemanFullStackResume.pdf`} download className="hover-link">
+
     <span>
-      <span>Download Resume</span>
-      <span>Download Resume</span>
+      <span>Resume</span>
+      <span>Resume</span>
     </span>
   </a>
 </li>
