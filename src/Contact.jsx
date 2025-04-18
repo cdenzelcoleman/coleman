@@ -1,5 +1,5 @@
 import React from "react";
-import "../public/pdf/CameronColemanFullStackResume.pdf";
+// import "../public/pdf/CameronColemanFullStackResume.pdf";
 import "./css/contact.css";
 
 const Contact = () => {
@@ -41,19 +41,18 @@ const Contact = () => {
               </div>
               <div className="tablet:ml-20">
                 <ul>
-                  <li>
-                    <a
-                      href="./pdf/CameronColemanFullStackResume.pdf"
-                      download="CameronColemanFullStackResume"
-                      className="hover-link"
-                      target="_blank"
-                    >
-                      <span>
-                        <span>resume</span>
-                        <span>resume</span>
-                      </span>
-                    </a>
-                  </li>
+                <li className="-mt-5">
+  <a 
+    href="/pdf/CameronColemanFullStackResume.pdf" 
+    download 
+    className="hover-link"
+  >
+    <span>
+      <span>Download Resume</span>
+      <span>Download Resume</span>
+    </span>
+  </a>
+</li>
                   <li className="-mt-5">
                     <a href="tel:+15123174414" className="hover-link" target="_blank">
                       <span>
