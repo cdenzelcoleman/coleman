@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "./css/index.css";
 import gsap from "gsap";
 import about1 from "./assets/about-1.png";
+import ScrambleStack from "./components/ScrambleStack";
+
 
 const About = () => {
   useEffect(() => {
@@ -69,6 +71,8 @@ const About = () => {
           Websites are a form of storytelling—merging images, colors, and typography to craft immersive narratives. My mission is to develop compelling digital experiences that seamlessly integrate modern design with robust frontend and backend technology, ensuring both beautiful visuals and powerful, scalable server-side solutions.
              </p>
           <h1 className="font-clash-grotesk tablet:text-10xl mobile:text-7xl">(info)</h1>
+          <ScrambleStack />
+
         </div>
       </div>
     </div>
