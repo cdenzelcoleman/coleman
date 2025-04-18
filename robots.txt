@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /admin/
-Allow: /
-
-# Sitemaps
-Sitemap: https://cdenzelcoleman.github.io/coleman/sitemap.xml
-
-# Optional crawl delay for bots
-Crawl-delay: 10
