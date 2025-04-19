@@ -10,6 +10,11 @@ import MobileBottomNav from './components/MobileBottomNav';
 
 const Landing = () => {
   useAnimations();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+
   const [time, setTime] = useState(
     new DateObject({ timezone: "America/Chicago" })
   );
@@ -183,44 +188,6 @@ const Landing = () => {
     </div>
   </div>
 </div>
-
-
-      {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 w-full z-50 mobile:block tablet:hidden bg-[#F2F0EF]/95 backdrop-blur-lg py-4">
-       <div className="flex justify-between items-center w-full px-4">
-          <div className="text-center">
-            <p className="text-sm font-bold">
-              {hours}<span className="blink-colon">:</span>{minutes} {ampm}
-            </p>
-            <p className="text-xs">LOCATION</p>
-            <p className="font-bold whitespace-nowrap text-xs">
-              AUSTIN, TX
-              </p>
-          </div>
-          <div className="flex gap-4">
-            {["about", "projects", "contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
-                className="hover-link text-sm"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById(link)?.scrollIntoView({ 
-                    behavior: "smooth",
-                    block: "start"
-                  });
-                }}
-              >
-                <span>
-                  <span>{link.toUpperCase()}</span>
-                  <span>{link.toUpperCase()}</span>
-                </span>
-              </a>
-            ))}
-     
-          </div>
-        </div>
-      </div>
             <MobileBottomNav hours={hours} minutes={minutes} ampm={ampm} />
     </div>
   );
