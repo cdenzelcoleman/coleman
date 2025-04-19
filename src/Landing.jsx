@@ -6,6 +6,7 @@ import { useParallax } from "react-scroll-parallax";
 import "./animations/hover-animation.css";
 import useAnimations from "./animations/useAnimation";
 import { TypeAnimation } from 'react-type-animation';
+import MobileBottomNav from './components/MobileBottomNav';
 
 const Landing = () => {
   useAnimations();
@@ -216,9 +217,11 @@ const Landing = () => {
                 </span>
               </a>
             ))}
+     
           </div>
         </div>
       </div>
+            <MobileBottomNav hours={hours} minutes={minutes} ampm={ampm} />
     </div>
   );
 };

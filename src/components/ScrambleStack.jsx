@@ -48,7 +48,7 @@ const ScrambleStack = () => {
   }, [frame, index]);
 
   return (
-   <div className="mt-10 text-center font-clash-grotesk tablet:text-8xl mobile:text-5xl uppercase text-black-400 tracking-tight">
+   <div className="mt-10 text-center font-clash-grotesk tablet:text-8xl mobile:text-4xl uppercase text-black-400 tracking-tight">
       <p className="text-black-400 opacity-70 mb-4">TECH STACK:</p>
       <div className="inline-block px-6 py-3 text-black-300  border-green-700 animate-pulse duration-1000">
         {current}
