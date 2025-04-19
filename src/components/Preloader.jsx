@@ -10,7 +10,7 @@ const Preloader = ({ onAnimationComplete }) => {
     "Full-Stack Dev",
     "Software Engineer",
     "Back-End Dev",
-    "UI/UX Dev",
+    "UI/UX Developer",
     "Based In Austin, TX",
   ];
 

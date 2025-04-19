@@ -15,6 +15,12 @@ const MobileContact = () => {
         <div className="flex flex-col space-y-6">
           {/* Social Links */}
           <div className="flex flex-col items-center space-y-4">
+            <a href="https://github.com/cdenzelcoleman"
+               className="hover-link text-lg"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>GitHub</span>
+            </a>
             <a href="https://www.instagram.com/cdenzelcoleman" 
                className="hover-link text-lg"
                target="_blank"

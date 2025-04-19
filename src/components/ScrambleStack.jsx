@@ -33,11 +33,11 @@ const ScrambleStack = () => {
         setTimeout(() => {
           setIndex((prev) => (prev + 1) % techStack.length); 
           setFrame(0);
-        }, 1200);
+        }, 2000);
       } else {
         setFrame((f) => f + 1);
       }
-    }, 150); 
+    }, 100); 
 
     return () => clearInterval(interval);
   }, [index, frame]);
@@ -50,7 +50,7 @@ const ScrambleStack = () => {
   return (
    <div className="mt-10 text-center font-clash-grotesk tablet:text-8xl mobile:text-5xl uppercase text-black-400 tracking-tight">
       <p className="text-black-400 opacity-70 mb-4">TECH STACK:</p>
-      <div className="inline-block px-6 py-3 bg-black text-green-300 rounded shadow-xl border border-green-700 animate-pulse duration-700">
+      <div className="inline-block px-6 py-3 text-black-300  border-green-700 animate-pulse duration-1000">
         {current}
       </div>
     </div>

@@ -22,6 +22,14 @@ const Contact = () => {
               <div>
                 <ul className="list-none">
                   <li className="-mt-5">
+                    <a href="https://github.com/cdenzelcoleman" className="hover-link" target="_blank">
+                      <span>
+                        <span>github</span>
+                        <span>github</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="-mt-5">
                     <a href="https://www.instagram.com/cdenzelcoleman" className="hover-link" target="_blank">
                       <span>
                         <span>instagram</span>
