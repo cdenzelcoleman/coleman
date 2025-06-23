@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import DateObject from "react-date-object";
 import gsap from "gsap";
 import "./css/styles.css";
@@ -12,6 +12,17 @@ const Landing = () => {
   useAnimations();
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Preload critical images
+    const preloadImages = [
+      '/assets/about-1.png',
+      // Add other critical images here
+    ];
+    
+    preloadImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
   }, []);
   
 

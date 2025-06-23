@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import gsap from "gsap";
+import { useEffect } from "react";
 import "../css/panelPreloader.css" 
 
 import TypeJobTitles from "./TypeJobTitles"; 

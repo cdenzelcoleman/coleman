@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "../animations/hover-animation.css";
 
 const transition = (OriginalComponent) => {
-  return () => (
+  const TransitionComponent = () => (
     <>
       <OriginalComponent />
       <motion.div
@@ -21,6 +21,8 @@ const transition = (OriginalComponent) => {
       />
     </>
   );
+  TransitionComponent.displayName = `transition(${OriginalComponent.displayName || OriginalComponent.name || 'Component'})`;
+  return TransitionComponent;
 };
 
 export default transition;
