@@ -5,7 +5,7 @@ import campaignGrid1 from "../assets/campaign/1.png";
 import campaignGrid4 from "../assets/campaign/her.png";
 import venturevillasImage from "../assets/venturevillas/VV.png";
 import venturevillasGrid3 from "../assets/venturevillas/VV4.png";
-import venturevillasGrid4 from "../assets/venturevillas/VV5.png";
+import venturevillasGrid4 from "../assets/venturevillas/vv5.png";
 import comicreviewboardsImage from "../assets/comicreviewboards/CRB.png";
 import comicreviewboardsGrid1 from "../assets/comicreviewboards/CRB2.png";
 import comicreviewboardsGrid2 from "../assets/comicreviewboards/CRB3.png";
