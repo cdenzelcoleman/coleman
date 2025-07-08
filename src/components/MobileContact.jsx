@@ -15,6 +15,12 @@ const MobileContact = () => {
         <div className="flex flex-col space-y-6">
           {/* Social Links */}
           <div className="flex flex-col items-center space-y-4">
+            <a href="https://github.com/cdenzelcoleman"
+               className="hover-link text-lg"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>GitHub</span>
+            </a>
             <a href="https://www.instagram.com/cdenzelcoleman" 
                className="hover-link text-lg"
                target="_blank"
@@ -31,10 +37,9 @@ const MobileContact = () => {
 
           {/* Resume & Contact Info */}
           <div className="flex flex-col items-center space-y-4">
-            <a href="/pdf/CameronColemanFullStackResume.pdf"
-               download="CameronColemanFullStackResume"
-               className="hover-link text-lg">
-              <span>Download Resume</span>
+          <a href={`${import.meta.env.BASE_URL}pdf/CameronColemanFullStackResume.pdf`} download className="hover-link">
+
+              <span>Resume</span>
             </a>
             
             <a href="tel:+15123174414" className="hover-link text-lg">

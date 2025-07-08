@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import gsap from "gsap";
+import { useEffect } from "react";
 import "../css/panelPreloader.css" 
 
 import TypeJobTitles from "./TypeJobTitles"; 
@@ -7,9 +6,9 @@ import TypeJobTitles from "./TypeJobTitles";
 const Preloader = ({ onAnimationComplete }) => {
   // job titles 
   const jobTitles = [
-    "Full-Stack Developer",
+    "Full-Stack Dev",
     "Software Engineer",
-    "Back-End Developer",
+    "Back-End Dev",
     "UI/UX Developer",
     "Based In Austin, TX",
   ];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 import DateObject from "react-date-object";
 import gsap from "gsap";
 import "./css/styles.css";
@@ -6,9 +6,26 @@ import { useParallax } from "react-scroll-parallax";
 import "./animations/hover-animation.css";
 import useAnimations from "./animations/useAnimation";
 import { TypeAnimation } from 'react-type-animation';
+import MobileBottomNav from './components/MobileBottomNav';
 
 const Landing = () => {
   useAnimations();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    // Preload critical images
+    const preloadImages = [
+      '/assets/about-1.png',
+      // Add other critical images here
+    ];
+    
+    preloadImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+  
+
   const [time, setTime] = useState(
     new DateObject({ timezone: "America/Chicago" })
   );
@@ -50,7 +67,8 @@ const Landing = () => {
   const ampm = time.format("A");
 
   return (
-    <div className="w-full h-screen overflow-hidden">
+    <div className="w-full min-h-screen overflow-x-hidden">
+
       {/* Mobile Header */}
       <div className="fixed top-0 left-0 w-full z-50 mobile:block tablet:hidden bg-bg-color/95 backdrop-blur-sm py-4">
         <div className="flex flex-col items-center px-4">
@@ -59,13 +77,21 @@ const Landing = () => {
             <TypeAnimation
               sequence={[
                 'FULL-STACK DEVELOPER',
-                2000,
-                'MOBILE APP DEVELOPER',
-                2000,
-                'UI/UX ENGINEER',
-                2000,
-                'CLOUD ARCHITECT',
-                2000
+                    2000,
+                    'MOBILE APP DEVELOPER',
+                    2000,
+                    'UI/UX ENGINEER',
+                    2000,
+                    'CLOUD ARCHITECT',
+                    2000,
+                     'WEB DEVELOPER',
+                    2000,
+                    'FRONT-END DEVELOPER',
+                    2000,
+                    'BACK-END DEVELOPER',
+                    2000,
+                    'SOFTWARE ENGINEER',
+                    2000,
               ]}
               wrapper="span"
               cursor={true}
@@ -158,55 +184,22 @@ const Landing = () => {
       </div>
 
       {/* Main Content (Shared) */}
-      <div className="mt-[30vh] mobile:px-4 tablet:mt-80">
-        <div className="flex flex-col items-center text-center">
-          <div className="font-clash-grotesk" ref={titleDesigner}>
-            <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
-          </div>
-          <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-28" ref={titleDeveloper}>
-            <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
-          </div>
-          <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
-            Crafting clean, efficient code to solve complex challenges.
-          </h2>
-        </div>
+      <div className="mt-[30vh] mobile:px-4 tablet:mt-80 px-4 tablet:px-10">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+    <div className="w-full">
+      <div className="font-clash-grotesk" ref={titleDesigner}>
+        <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
       </div>
-
-      {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 w-full z-50 mobile:block tablet:hidden bg-[#4545ee]/95 backdrop-blur-lg py-4">
-        <div className="flex justify-around items-center">
-          <div className="text-center">
-            <p className="text-sm font-bold">
-              {hours}<span className="blink-colon">:</span>{minutes} {ampm}
-            </p>
-            <p className="text-xs">LOCATION</p>
-            <p className="font-bold whitespace-nowrap text-xs">
-              AUSTIN, TX
-              </p>
-          </div>
-          <div className="flex gap-4">
-            {["about", "projects", "contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
-                className="hover-link text-sm"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById(link)?.scrollIntoView({ 
-                    behavior: "smooth",
-                    block: "start"
-                  });
-                }}
-              >
-                <span>
-                  <span>{link.toUpperCase()}</span>
-                  <span>{link.toUpperCase()}</span>
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
+      <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-32" ref={titleDeveloper}>
+        <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
       </div>
+      <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
+        Crafting clean, efficient code to solve complex challenges.
+      </h2>
+    </div>
+  </div>
+</div>
+            <MobileBottomNav hours={hours} minutes={minutes} ampm={ampm} />
     </div>
   );
 };

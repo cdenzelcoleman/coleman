@@ -20,7 +20,7 @@ const MobileProjects = ({ onProjectClick }) => {
                 href={project.liveDemo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-[#4545ee] text-white rounded-lg"
+                className="inline-block px-6 py-3 bg-[#F2F0EF] text-black rounded-lg"
               >
                 View Project
               </a>

@@ -1,10 +1,10 @@
 // src/App.jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-import Lenis from '@studio-freight/lenis';
+// import Lenis from '@studio-freight/lenis';
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 // Mobile components
@@ -22,7 +22,7 @@ import Contact from "./Contact";
 import SinglePageProject from "./components/SinglePageProject";
 import TechStack from "./TechStack";
 import usePreloadSVGAssets from "./hooks/usePreloadSVGAssets";
-import "./css/lenis.css";
+// import "./css/lenis.css";
 import "./animations/hover-animation.css";
 import "./css/loader.css";
 import "./css/index.css";
@@ -47,19 +47,19 @@ const App = () => {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     
-    const lenis = new Lenis({
-      lerp: 0.1,
-      smoothWheel: true,
-      syncTouch: true,
-      wheelMultiplier: 1.2,
-      touchMultiplier: 2,
-      normalizeWheel: true,
-    });
+    // const lenis = new Lenis({
+    //   lerp: 0.1,
+    //   smoothWheel: true,
+    //   syncTouch: true,
+    //   wheelMultiplier: 1.2,
+    //   touchMultiplier: 2,
+    //   normalizeWheel: true,
+    // });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    // lenis.on("scroll", ScrollTrigger.update);
+    // gsap.ticker.add((time) => {
+    //   lenis.raf(time * 1000);
+    // });
 
     const timer = setTimeout(() => {
       setIsLoaded(true);
@@ -75,8 +75,6 @@ const App = () => {
     return () => {
       window.removeEventListener("resize", checkMobile);
       clearTimeout(timer);
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
-      lenis.destroy();
     };
   }, []);
 

@@ -1,5 +1,3 @@
-import React from "react";
-import "../public/pdf/CameronColemanFullStackResume.pdf";
 import "./css/contact.css";
 
 const Contact = () => {
@@ -14,7 +12,7 @@ const Contact = () => {
               contact
             </h1>
             <p className="text-bg-color tablet:-mt-7 tablet:w-2/6 mobile:w-80 tablet:text-right tablet:text-lg mobile:text-sm">
-              Let's Connect! Reach out and let the conversation begin.
+              Let&apos;s Connect! Reach out and let the conversation begin.
             </p>
           </div>
           <div className="text-bg-color flex tablet:flex-row mobile:flex-col tablet:items-end tablet:justify-between pt-20 font-urbanist font-bold text-lg -mb-3">
@@ -22,7 +20,15 @@ const Contact = () => {
               <div>
                 <ul className="list-none">
                   <li className="-mt-5">
-                    <a href="https://www.instagram.com/cdenzelcoleman" className="hover-link" target="_blank">
+                    <a href="https://github.com/cdenzelcoleman" className="hover-link" target="_blank" rel="noopener noreferrer">
+                      <span>
+                        <span>github</span>
+                        <span>github</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="-mt-5">
+                    <a href="https://www.instagram.com/cdenzelcoleman" className="hover-link" target="_blank" rel="noopener noreferrer">
                       <span>
                         <span>instagram</span>
                         <span>instagram</span>
@@ -30,7 +36,7 @@ const Contact = () => {
                     </a>
                   </li>
                   <li className="-mt-5">
-                    <a href="https://www.linkedin.com/in/camerondenzelcoleman" className="hover-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/camerondenzelcoleman" className="hover-link" target="_blank" rel="noopener noreferrer">
                       <span>
                         <span>linkedin</span>
                         <span>linkedin</span>
@@ -41,21 +47,17 @@ const Contact = () => {
               </div>
               <div className="tablet:ml-20">
                 <ul>
-                  <li>
-                    <a
-                      href="./pdf/CameronColemanFullStackResume.pdf"
-                      download="CameronColemanFullStackResume"
-                      className="hover-link"
-                      target="_blank"
-                    >
-                      <span>
-                        <span>resume</span>
-                        <span>resume</span>
-                      </span>
-                    </a>
-                  </li>
+                <li className="-mt-5">
+                <a href={`${import.meta.env.BASE_URL}pdf/CameronColemanFullStackResume.pdf`} download className="hover-link">
+
+    <span>
+      <span>Resume</span>
+      <span>Resume</span>
+    </span>
+  </a>
+</li>
                   <li className="-mt-5">
-                    <a href="tel:+15123174414" className="hover-link" target="_blank">
+                    <a href="tel:+15123174414" className="hover-link" target="_blank" rel="noopener noreferrer">
                       <span>
                         <span>+1 512-317-4414</span>
                         <span>+1 512-317-4414</span>
@@ -63,7 +65,7 @@ const Contact = () => {
                     </a>
                   </li>
                   <li className="-mt-5">
-                    <a href="mailto:camdenzelcoleman@gmail.com" className="hover-link" target="_blank">
+                    <a href="mailto:camdenzelcoleman@gmail.com" className="hover-link" target="_blank" rel="noopener noreferrer">
                       <span>
                         <span>camdenzelcoleman@gmail.com</span>
                         <span>camdenzelcoleman@gmail.com</span>
