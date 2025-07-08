@@ -8,7 +8,12 @@ import venturevillasGrid3 from "../assets/venturevillas/VV4.png";
 import venturevillasGrid4 from "../assets/venturevillas/vv5.png";
 import comicreviewboardsImage from "../assets/comicreviewboards/CRB.png";
 import comicreviewboardsGrid1 from "../assets/comicreviewboards/CRB2.png";
-import comicreviewboardsGrid2 from "../assets/comicreviewboards/CRB3.png";
+import comicreviewboardsGrid2 from "../assets/comicreviewboards/CRB3.png"; 
+import dramalogo from "../assets/drama/dramalogo.png";
+import dramaimage from "../assets/drama/drama.png";
+import dramaGrid1 from "../assets/drama/drama-1.png";
+import dramaGrid2 from "../assets/drama/drama-2.png";
+import dramaGrid3 from "../assets/drama/drama-3.png"; 
 
 
 const projectsData = [
@@ -41,7 +46,36 @@ const projectsData = [
     liveDemo: "https://thecampaign-88f02c968441.herokuapp.com/",
   },
   {
-    id: 2,
+  id: 2,
+  name: "Drama",
+  firstname: "Drama",
+  lastname: "",
+  keywords: ["Movies", "Games", "Collaboration"],
+  skills: ["Django", "Docker", "REST API"],
+  description:
+    "A collaborative web app that helps couples, families, and friends decide on movies through fun, competitive mini-games.",
+  month: "JULY",
+  year: "2025",
+  details:
+    "Drama lets users sign up, invite known friends, search for films via a public movie API (title, genre, randomizer, AI suggestions), and then play micro-games—like tap-the-most or shake-the-most in 5 seconds—to determine the final movie choice.",
+  socials: {
+    github: {
+      name: "Github",
+      link: "https://github.com/cdenzelcoleman/drama",
+    },
+  },
+  image: dramaimage,
+  hero: dramalogo,
+  gridImages: [
+    dramaGrid1,
+    dramaGrid2,
+    dramaGrid3,
+  ],
+  popup: "/assets/hairxyou-popup.png",
+  liveDemo: 'https://drama-71f6e75e63a6.herokuapp.com/movies/',
+},
+  {
+    id: 3,
     name: "Venture Villas",
     firstname: "Venture",
     lastname: "Villas",
@@ -63,7 +97,7 @@ const projectsData = [
     liveDemo: "https://venture-villas-dfc403d3632f.herokuapp.com/",
   },
   {
-    id: 3,
+    id: 4,
     name: "Comic Review Boards",
     firstname: "Comic",
     lastname: "Review Boards",
@@ -84,34 +118,7 @@ const projectsData = [
     popup: "/assets/comic-review-boards-popup.png",
     liveDemo: "https://comicreviewboards-1b3201cae838.herokuapp.com/",
   },
-  {
-    id: 4,
-    name: "hairxyou",
-    firstname: "hairxyou",
-    lastname: "",
-    keywords: ["Simulation", "Casual", "Gaming"],
-    skills: ["React Native", "React", "JavaScript"],
-    description:
-      "A casual simulation game that lets players experiment with different hairstyles and creative looks in a fun, interactive environment.",
-    month: "AUGUST",
-    year: "2024",
-    details:
-      "hairxyou is built to provide a playful and interactive experience where users can simulate and experiment with various hair styles and trends.",
-    socials: {
-      github: {
-        name: "Github",
-        link: "https://github.com/cdenzelcoleman/hairxyou",
-      },
-    },
-    image: "/assets/hairxyou.png",
-    hero: "/assets/hairxyou-hero.png",
-    gridImages: [
-      "/assets/hairxyou-1.png",
-      "/assets/hairxyou-2.png",
-      "/assets/hairxyou-3.png",
-    ],
-    popup: "/assets/hairxyou-popup.png",
-  },
+  
 ];
 
 export default projectsData;

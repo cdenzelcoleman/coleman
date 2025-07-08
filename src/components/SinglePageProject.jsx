@@ -42,27 +42,34 @@ const SinglePageProject = () => {
 
   useEffect(() => {
     if (project) {
-      preloadImages(project.gridImages);
-      const timer = setTimeout(() => setImagesLoaded(true), 500);
+      const imagesToPreload = [...project.gridImages, project.hero];
+      preloadImages(imagesToPreload);
+      
+      // Set longer timeout to ensure images are loaded
+      const timer = setTimeout(() => setImagesLoaded(true), 1000);
       return () => clearTimeout(timer);
     }
   }, [project]);
 
   useEffect(() => {
-    gsap.to(".img-container", {
-      clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
-      ease: "power4.inOut",
-      stagger: { amount: 1.5 },
-      duration: 2,
-    });
+    if (imagesLoaded) {
+      // Animate image containers revealing
+      gsap.to(".img-container", {
+        clipPath: "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)",
+        ease: "power4.inOut",
+        stagger: { amount: 1.2 },
+        duration: 1.5,
+      });
 
-    gsap.to(".loader", {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-      ease: "power4.inOut",
-      delay: 2,
-      duration: 2,
-    });
-  }, []);
+      // Hide loader after images are revealed
+      gsap.to(".loader", {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        ease: "power4.inOut",
+        delay: 2.5,
+        duration: 1.5,
+      });
+    }
+  }, [imagesLoaded]);
 
   if (!project) return <p className="p-8 text-center">Project not found</p>;
 
@@ -121,7 +128,7 @@ const SinglePageProject = () => {
               <img
                 src={project.hero}
                 alt="Project hero"
-                className="w-full h-auto object-cover rounded-xl filter grayscale hover:grayscale-0 transition-all duration-500 ease-in-out"
+                className="w-full max-h-96 md:max-h-[500px] object-contain rounded-xl filter grayscale hover:grayscale-0 transition-all duration-500 ease-in-out"
               />
             </div>
           </div>
@@ -153,7 +160,7 @@ const SinglePageProject = () => {
               <img
                 src={image}
                 alt={`Project image ${index + 1}`}
-                className="w-full h-full object-cover rounded-xl transform group-hover:scale-105 transition-transform duration-500"
+                className="w-full max-h-96 object-contain rounded-xl transform group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           ))}
@@ -180,6 +187,15 @@ const SinglePageProject = () => {
 
       {/* Preloader Animation */}
       <div className="loader">
+        {!imagesLoaded && (
+          <div className="preloader">
+            <div className="loader-content">
+              <h1>{project.name}</h1>
+              <p className="mt-4 text-lg opacity-75">Loading...</p>
+            </div>
+          </div>
+        )}
+        
         {project.gridImages.map((image, index) => (
           <div className="img-container" key={index}>
             <img
@@ -192,7 +208,7 @@ const SinglePageProject = () => {
         <div className="img-container">
           <img
             src={project.hero}
-            alt=""
+            alt={project.name}
             className="w-full h-full object-cover"
           />
         </div>
