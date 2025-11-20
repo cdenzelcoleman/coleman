@@ -7,21 +7,23 @@
   }
   
   .main-container {
-    max-width: 1440px;
+    max-width: clamp(320px, 95vw, 1440px);
     margin: 0 auto;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
   }
   
   .tablet\:-mt-40 {
-    margin-top: -10rem;
+    margin-top: clamp(-6rem, -15vw, -10rem);
   }
   
   .tablet\:text-11xl {
-    font-size: 8rem;
+    font-size: clamp(4rem, 12vw, 8rem);
     line-height: 1;
   }
   
   .desktop\:text-14xl {
-    font-size: 10rem;
+    font-size: clamp(6rem, 15vw, 10rem);
     line-height: 1;
   }
   

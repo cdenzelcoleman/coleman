@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import './responsive.css';
 
 @tailwind base;
 @tailwind components;
@@ -10,15 +11,8 @@
 }
 
 body > #root > div.content-wrapper {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 768px) {
-  body > #root > div.content-wrapper {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
 }
 
 @font-face {

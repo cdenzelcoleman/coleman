@@ -70,10 +70,10 @@ const Landing = () => {
     <div className="w-full min-h-screen overflow-x-hidden">
 
       {/* Mobile Header */}
-      <div className="fixed top-0 left-0 w-full z-50 mobile:block tablet:hidden bg-bg-color/95 backdrop-blur-sm py-4">
-        <div className="flex flex-col items-center px-4">
-          <h1 className="text-2xl font-bold text-center">CAMERON COLEMAN</h1>
-          <div className="text-center mt-2">
+      <div className="fixed top-0 left-0 w-full z-50 mobile:block tablet:hidden bg-bg-color/95 backdrop-blur-sm fluid-py-sm">
+        <div className="flex flex-col items-center fluid-px-sm">
+          <h1 className="fluid-text-2xl font-bold text-center">CAMERON COLEMAN</h1>
+          <div className="text-center fluid-mt-sm">
             <TypeAnimation
               sequence={[
                 'FULL-STACK DEVELOPER',
@@ -96,7 +96,7 @@ const Landing = () => {
               wrapper="span"
               cursor={true}
               repeat={Infinity}
-              style={{ fontSize: '0.875rem' }}
+              style={{ fontSize: 'clamp(0.875rem, 2.5vw, 1rem)' }}
               cursorStyle={{
                 width: '2px',
                 animation: 'blink .75s step-end infinite'
@@ -184,16 +184,16 @@ const Landing = () => {
       </div>
 
       {/* Main Content (Shared) */}
-      <div className="mt-[30vh] mobile:px-4 tablet:mt-80 px-4 tablet:px-10">
+      <div className="fluid-container fluid-hero-title">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
     <div className="w-full">
       <div className="font-clash-grotesk" ref={titleDesigner}>
-        <h1 className="mobile:text-5xl tablet:text-10xl">FULL-STACK</h1>
+        <h1 className="fluid-text-9xl">FULL-STACK</h1>
       </div>
-      <div className="font-clash-grotesk mobile:mt-4 tablet:-mt-32" ref={titleDeveloper}>
-        <h1 className="mobile:text-5xl tablet:text-10xl">DEVELOPER</h1>
+      <div className="font-clash-grotesk fluid-mt-sm" ref={titleDeveloper}>
+        <h1 className="fluid-text-9xl">DEVELOPER</h1>
       </div>
-      <h2 className="mt-4 font-urbanist mobile:text-base tablet:text-lg px-4">
+      <h2 className="fluid-hero-subtitle font-urbanist fluid-px-md">
         Crafting clean, efficient code to solve complex challenges.
       </h2>
     </div>
