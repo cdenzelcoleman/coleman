@@ -31,14 +31,17 @@ const Landing = () => {
   );
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const { ref: titleDesigner } = useParallax({ 
-    translateX: [-50, 20], 
-    speed: 5 
+  // Disable parallax on mobile to prevent text jumbling
+  const { ref: titleDesigner } = useParallax({
+    translateX: isMobile ? [0, 0] : [-50, 20],
+    speed: isMobile ? 0 : 5,
+    disabled: isMobile
   });
 
-  const { ref: titleDeveloper } = useParallax({ 
-    translateX: [30, -20], 
-    speed: 10 
+  const { ref: titleDeveloper } = useParallax({
+    translateX: isMobile ? [0, 0] : [30, -20],
+    speed: isMobile ? 0 : 10,
+    disabled: isMobile
   });
 
   useEffect(() => {
@@ -184,21 +187,21 @@ const Landing = () => {
       </div>
 
       {/* Main Content (Shared) */}
-      <div className="fluid-container fluid-hero-title">
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-    <div className="w-full">
-      <div className="font-clash-grotesk" ref={titleDesigner}>
-        <h1 className="fluid-text-9xl">FULL-STACK</h1>
+      <div className="fluid-container fluid-hero-title mobile:px-4">
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+          <div className="w-full mobile:overflow-hidden">
+            <div className="font-clash-grotesk" ref={titleDesigner}>
+              <h1 className="fluid-text-9xl mobile:leading-tight tablet:leading-normal">FULL-STACK</h1>
+            </div>
+            <div className="font-clash-grotesk fluid-mt-sm" ref={titleDeveloper}>
+              <h1 className="fluid-text-9xl mobile:leading-tight tablet:leading-normal">DEVELOPER</h1>
+            </div>
+            <h2 className="fluid-hero-subtitle font-urbanist fluid-px-md mobile:mt-6 tablet:mt-0">
+              Crafting clean, efficient code to solve complex challenges.
+            </h2>
+          </div>
+        </div>
       </div>
-      <div className="font-clash-grotesk fluid-mt-sm" ref={titleDeveloper}>
-        <h1 className="fluid-text-9xl">DEVELOPER</h1>
-      </div>
-      <h2 className="fluid-hero-subtitle font-urbanist fluid-px-md">
-        Crafting clean, efficient code to solve complex challenges.
-      </h2>
-    </div>
-  </div>
-</div>
             <MobileBottomNav hours={hours} minutes={minutes} ampm={ampm} />
     </div>
   );
