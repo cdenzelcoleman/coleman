@@ -107,7 +107,7 @@ const Landing = () => {
       </div>
 
       {/* Desktop Header */}
-      <div className="fixed top-0 left-0 w-full #ECECED z-50 mobile:hidden tablet:block">
+      <div className="fixed top-0 left-0 w-full bg-[#ECECED] z-50 mobile:hidden tablet:block">
         <div className="flex justify-between items-start overflow-hidden tablet:flex-row">
           <div className="flex items-center flex-grow min-w-[300px]">
             <div className="font-extrabold flex flex-col font-urbanist tablet:ml-5">
