@@ -31,17 +31,15 @@ const Landing = () => {
   );
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Disable parallax on mobile to prevent text jumbling
+  // Reduced parallax intensity on mobile to prevent overflow while keeping animation
   const { ref: titleDesigner } = useParallax({
-    translateX: isMobile ? [0, 0] : [-50, 20],
-    speed: isMobile ? 0 : 5,
-    disabled: isMobile
+    translateX: isMobile ? [-10, 10] : [-50, 20],
+    speed: isMobile ? 2 : 5
   });
 
   const { ref: titleDeveloper } = useParallax({
-    translateX: isMobile ? [0, 0] : [30, -20],
-    speed: isMobile ? 0 : 10,
-    disabled: isMobile
+    translateX: isMobile ? [10, -10] : [30, -20],
+    speed: isMobile ? 3 : 10
   });
 
   useEffect(() => {
