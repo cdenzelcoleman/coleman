@@ -65,7 +65,7 @@ const About = () => {
   className="fluid-rounded-lg fluid-img transition-all duration-300 hover:scale-95"
 />
           <p className="fluid-text-lg fluid-mt-md">
-          I'm Cameron Coleman, a dedicated full-stack developer with over 10 years of leadership experience in hospitality management. As a father, husband, comic book enthusiast, skateboarder, martial artist, and actor, I blend creativity with technical expertise. I thrive on solving complex challenges with clean, efficient code—from designing engaging front-end interfaces using React, HTML, and CSS, to building robust backends with Node.js, Python, and Django, and integrating modern AI solutions with the OpenAI API. I work hard, love to learn, and am driven by a commitment to excellence.
+          I'm Cameron Coleman, a dedicated full-stack developer with over 10 years of leadership experience in hospitality management. As a father, husband, comic book enthusiast, skateboarder, martial artist, and actor, I blend creativity with technical expertise. I thrive on solving complex challenges with clean efficient code. From designing engaging front-end interfaces using React, HTML, and CSS, to building robust backends with Node.js, Python, and Django, and integrating modern AI solutions with the OpenAI API. I work hard, love to learn, and am driven by a commitment to excellence.
           </p>
           {/* <p className="fluid-text-lg fluid-mt-lg">
           Websites are a form of storytelling—merging images, colors, and typography to craft immersive narratives. My mission is to develop compelling digital experiences that seamlessly integrate modern design with robust frontend and backend technology, ensuring both beautiful visuals and powerful, scalable server-side solutions.
